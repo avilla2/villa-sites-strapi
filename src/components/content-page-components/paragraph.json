@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_content_page_components_paragraphs",
+  "info": {
+    "displayName": "Paragraph",
+    "icon": "filter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Body": {
+      "type": "richtext"
+    },
+    "Style": {
+      "displayName": "Style",
+      "type": "component",
+      "repeatable": false,
+      "component": "content-page-components.style"
+    }
+  }
+}

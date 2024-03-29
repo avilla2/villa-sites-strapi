@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_navbar_components_mobile_configs",
+  "info": {
+    "displayName": "Mobile Config",
+    "icon": "connector"
+  },
+  "options": {},
+  "attributes": {
+    "DrawerLink": {
+      "type": "string"
+    },
+    "DrawerText": {
+      "type": "string"
+    },
+    "MobileIcon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "IconLink": {
+      "type": "string"
+    }
+  }
+}

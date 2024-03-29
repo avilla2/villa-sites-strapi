@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_footer_icons_components_entries",
+  "info": {
+    "displayName": "Entry",
+    "icon": "layer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Link": {
+      "type": "string"
+    },
+    "Icon": {
+      "type": "enumeration",
+      "enum": [
+        "Facebook",
+        "Instagram",
+        "X",
+        "Youtube",
+        "TikTok"
+      ]
+    },
+    "Color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_footer_components_icons",
+  "info": {
+    "displayName": "Icons",
+    "icon": "grid",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Entry": {
+      "displayName": "Entry",
+      "type": "component",
+      "repeatable": true,
+      "component": "footer-icons-components.entry"
+    },
+    "Space": {
+      "type": "integer"
+    }
+  }
+}

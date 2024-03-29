@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_form_components_form_fields",
+  "info": {
+    "displayName": "Form Fields",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "validation": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "any",
+        "phone"
+      ],
+      "default": "any"
+    },
+    "includeInSubjectLine": {
+      "type": "boolean"
+    },
+    "fullWidth": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_instant_quote_components_job_types",
+  "info": {
+    "displayName": "Job Types",
+    "icon": "plus",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "JobType": {
+      "type": "string",
+      "required": true
+    },
+    "PricePer": {
+      "type": "decimal",
+      "required": true
+    },
+    "PriceMinimum": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}

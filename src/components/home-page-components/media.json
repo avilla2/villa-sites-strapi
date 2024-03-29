@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_home_page_components_media",
+  "info": {
+    "displayName": "Media",
+    "icon": "archive",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "asset": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::asset.asset"
+    },
+    "Style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content-page-components.style"
+    }
+  }
+}

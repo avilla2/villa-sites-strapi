@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "assets",
+  "info": {
+    "singularName": "asset",
+    "pluralName": "assets",
+    "displayName": "Asset",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Content": {
+      "type": "dynamiczone",
+      "components": [
+        "asset-components.pdf",
+        "asset-components.video",
+        "asset-components.image"
+      ],
+      "required": true,
+      "max": 1,
+      "min": 1
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Caption": {
+      "type": "richtext"
+    }
+  }
+}

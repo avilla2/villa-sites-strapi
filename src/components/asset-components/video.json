@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_asset_components_videos",
+  "info": {
+    "displayName": "Video",
+    "icon": "play",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "File": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "Autoplay": {
+      "type": "boolean",
+      "default": false
+    },
+    "Loop": {
+      "type": "boolean",
+      "default": false
+    },
+    "Width": {
+      "type": "integer",
+      "default": 80
+    },
+    "Muted": {
+      "type": "boolean",
+      "default": false
+    },
+    "Controls": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

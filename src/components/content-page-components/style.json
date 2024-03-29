@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_content_page_components_styles",
+  "info": {
+    "displayName": "Style",
+    "icon": "chartBubble",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Animation": {
+      "type": "enumeration",
+      "enum": [
+        "None",
+        "Fade",
+        "Slide"
+      ],
+      "default": "None"
+    },
+    "BackgroundColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "TextColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "textAlign": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "default": "center"
+    }
+  }
+}

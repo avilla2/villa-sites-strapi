@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_navbar_components_nav_buttons",
+  "info": {
+    "displayName": "Nav Button",
+    "icon": "cast",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string",
+      "required": true
+    },
+    "Color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    }
+  }
+}

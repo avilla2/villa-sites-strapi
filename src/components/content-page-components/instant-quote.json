@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_content_page_components_instant_quotes",
+  "info": {
+    "displayName": "InstantQuote",
+    "icon": "information",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content-page-components.style"
+    },
+    "ButtonStyle": {
+      "type": "enumeration",
+      "enum": [
+        "contained",
+        "outlined",
+        "text"
+      ],
+      "default": "outlined"
+    },
+    "ButtonColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "Entry": {
+      "displayName": "Job Types",
+      "type": "component",
+      "repeatable": true,
+      "component": "instant-quote-components.job-types"
+    },
+    "SendTo": {
+      "type": "email"
+    },
+    "SendFrom": {
+      "type": "email"
+    },
+    "ButtonText": {
+      "type": "string"
+    }
+  }
+}

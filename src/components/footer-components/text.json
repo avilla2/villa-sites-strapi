@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_footer_components_texts",
+  "info": {
+    "displayName": "Text",
+    "icon": "layer"
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "richtext"
+    },
+    "Space": {
+      "type": "integer"
+    }
+  }
+}

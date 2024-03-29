@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_content_page_components_grids",
+  "info": {
+    "displayName": "Grid",
+    "icon": "layout",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Entry": {
+      "displayName": "Grid Entry",
+      "type": "component",
+      "repeatable": true,
+      "component": "grid-components.grid-entry"
+    },
+    "Style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content-page-components.style"
+    }
+  }
+}

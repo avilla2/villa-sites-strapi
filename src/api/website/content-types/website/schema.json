@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "websites",
+  "info": {
+    "singularName": "website",
+    "pluralName": "websites",
+    "displayName": "Website",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Navbar": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::website-navbar.website-navbar"
+    },
+    "Footer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::website-footer.website-footer"
+    },
+    "Name": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Homepage": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::website-homepage.website-homepage"
+    },
+    "SiteSettings": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::website-setting.website-setting"
+    },
+    "ContentPages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::content-page.content-page"
+    }
+  }
+}

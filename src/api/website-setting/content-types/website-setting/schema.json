@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "website_settings",
+  "info": {
+    "singularName": "website-setting",
+    "pluralName": "website-settings",
+    "displayName": "Site Settings",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Palette": {
+      "type": "component",
+      "repeatable": false,
+      "component": "site-settings-components.color-palette"
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "DesktopBreakpoint": {
+      "type": "enumeration",
+      "enum": [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl"
+      ],
+      "default": "md"
+    },
+    "EnableLocalization": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

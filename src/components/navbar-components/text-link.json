@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_navbar_components_text_links",
+  "info": {
+    "displayName": "Text Link",
+    "icon": "link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Link": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    }
+  }
+}

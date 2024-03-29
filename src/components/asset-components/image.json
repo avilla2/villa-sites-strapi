@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_asset_components_images",
+  "info": {
+    "displayName": "Image",
+    "icon": "picture",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "File": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Width": {
+      "type": "integer",
+      "default": 80
+    },
+    "Style": {
+      "type": "enumeration",
+      "enum": [
+        "Regular",
+        "Parallax"
+      ],
+      "default": "Regular"
+    },
+    "Height": {
+      "type": "integer"
+    }
+  }
+}

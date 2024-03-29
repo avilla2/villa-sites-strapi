@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "content_pages",
+  "info": {
+    "singularName": "content-page",
+    "pluralName": "content-pages",
+    "displayName": "Content Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "unique": true
+    },
+    "Link": {
+      "type": "string",
+      "unique": false,
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Content": {
+      "type": "dynamiczone",
+      "components": [
+        "content-page-components.paragraph",
+        "content-page-components.faq",
+        "content-page-components.form",
+        "content-page-components.grid",
+        "content-page-components.buttons",
+        "home-page-components.gallery",
+        "home-page-components.intro",
+        "home-page-components.media",
+        "content-page-components.instant-quote",
+        "content-page-components.image",
+        "content-page-components.video"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    }
+  }
+}

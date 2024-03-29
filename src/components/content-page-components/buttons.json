@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_content_page_components_buttons",
+  "info": {
+    "displayName": "Buttons",
+    "icon": "chartBubble",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Entry": {
+      "displayName": "Button Entry",
+      "type": "component",
+      "repeatable": true,
+      "component": "button-components.button-entry"
+    },
+    "Style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content-page-components.style"
+    },
+    "ButtonStyle": {
+      "type": "enumeration",
+      "enum": [
+        "contained",
+        "outlined",
+        "text"
+      ],
+      "default": "outlined"
+    },
+    "ButtonArrangement": {
+      "type": "enumeration",
+      "enum": [
+        "together",
+        "space between",
+        "spaced evenly"
+      ],
+      "default": "together"
+    }
+  }
+}

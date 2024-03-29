@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_content_page_components_images",
+  "info": {
+    "displayName": "Image",
+    "icon": "landscape",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "asset": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "width": {
+      "type": "integer",
+      "default": 80
+    },
+    "height": {
+      "type": "integer"
+    },
+    "imageStyle": {
+      "type": "enumeration",
+      "enum": [
+        "Regular",
+        "Parallax"
+      ]
+    },
+    "caption": {
+      "type": "richtext"
+    },
+    "Style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content-page-components.style"
+    },
+    "captionLocation": {
+      "type": "enumeration",
+      "enum": [
+        "top",
+        "left",
+        "bottom",
+        "right"
+      ],
+      "default": "bottom"
+    }
+  }
+}

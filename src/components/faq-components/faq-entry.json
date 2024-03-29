@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_faq_components_faq_entries",
+  "info": {
+    "displayName": "FAQ Entry",
+    "icon": "feather"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Body": {
+      "type": "richtext"
+    }
+  }
+}

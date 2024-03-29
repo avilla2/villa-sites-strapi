@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_navbar_components_image_links",
+  "info": {
+    "displayName": "Image Link",
+    "icon": "picture",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Link": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "Width": {
+      "type": "decimal"
+    }
+  }
+}

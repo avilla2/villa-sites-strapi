@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_footer_components_images",
+  "info": {
+    "displayName": "Image",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Space": {
+      "type": "integer"
+    }
+  }
+}
