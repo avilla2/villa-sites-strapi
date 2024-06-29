@@ -9,4 +9,5 @@ module.exports = [
   'strapi::favicon',
   'strapi::public',
   'strapi::cors',
+  'global::called-by'
 ];

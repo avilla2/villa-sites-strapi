@@ -64,6 +64,12 @@
         }
       },
       "type": "string"
+    },
+    "admin_role": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::role",
+      "private": true
     }
   }
 }

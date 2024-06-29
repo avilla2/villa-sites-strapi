@@ -43,6 +43,12 @@
           "localized": true
         }
       }
+    },
+    "admin_roles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "admin::role",
+      "private": true
     }
   }
 }
