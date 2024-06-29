@@ -7,9 +7,13 @@ Strapi comes with a full featured [Command Line Interface](https://docs.strapi.i
 Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
 
 ```
-npm run develop
-# or
 yarn develop
+```
+
+For local development also open a new terminal window to run the database with docker compose
+
+```
+docker compose up
 ```
 
 ### `start`
