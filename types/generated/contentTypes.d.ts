@@ -1127,7 +1127,9 @@ export interface ApiWebsiteHomepageWebsiteHomepage
         'content-page-components.grid',
         'content-page-components.instant-quote',
         'content-page-components.paragraph',
-        'content-page-components.card-group'
+        'content-page-components.card-group',
+        'content-page-components.image',
+        'content-page-components.video'
       ]
     > &
       Attribute.SetPluginOptions<{
