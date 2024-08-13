@@ -24,7 +24,7 @@
     },
     "sendFrom": {
       "type": "email",
-      "default": "notifications@pacwestsoftwash.com"
+      "default": "notifications@villawebsolutions.com"
     },
     "fields": {
       "displayName": "Form Fields",

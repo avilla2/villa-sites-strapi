@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_content_page_components_card_groups",
+  "info": {
+    "displayName": "CardGroup",
+    "icon": "collapse",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content-page-components.style"
+    },
+    "Cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "card-group-components.cards"
+    }
+  }
+}

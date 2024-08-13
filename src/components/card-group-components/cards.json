@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_home_page_components_cards",
+  "info": {
+    "displayName": "Cards",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Text": {
+      "type": "blocks"
+    },
+    "CardStyle": {
+      "type": "enumeration",
+      "enum": [
+        "standard",
+        "overlay"
+      ],
+      "default": "standard"
+    },
+    "ButtonText": {
+      "type": "string"
+    },
+    "ButtonColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "CardColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "Link": {
+      "type": "string"
+    }
+  }
+}

@@ -36,7 +36,8 @@
         "content-page-components.form",
         "content-page-components.grid",
         "content-page-components.instant-quote",
-        "content-page-components.paragraph"
+        "content-page-components.paragraph",
+        "content-page-components.card-group"
       ],
       "pluginOptions": {
         "i18n": {

@@ -43,6 +43,22 @@
         "videos",
         "audios"
       ]
+    },
+    "Buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "button-components.button-entry"
+    },
+    "FormFields": {
+      "type": "component",
+      "repeatable": true,
+      "component": "form-components.form-fields"
+    },
+    "FormData": {
+      "displayName": "FormData",
+      "type": "component",
+      "repeatable": false,
+      "component": "form-components.form-data"
     }
   }
 }

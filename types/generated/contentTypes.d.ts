@@ -878,7 +878,8 @@ export interface ApiContentPageContentPage extends Schema.CollectionType {
         'home-page-components.media',
         'content-page-components.instant-quote',
         'content-page-components.image',
-        'content-page-components.video'
+        'content-page-components.video',
+        'content-page-components.card-group'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1125,7 +1126,8 @@ export interface ApiWebsiteHomepageWebsiteHomepage
         'content-page-components.form',
         'content-page-components.grid',
         'content-page-components.instant-quote',
-        'content-page-components.paragraph'
+        'content-page-components.paragraph',
+        'content-page-components.card-group'
       ]
     > &
       Attribute.SetPluginOptions<{

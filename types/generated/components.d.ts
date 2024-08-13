@@ -60,6 +60,27 @@ export interface ButtonComponentsButtonEntry extends Schema.Component {
   };
 }
 
+export interface CardGroupComponentsCards extends Schema.Component {
+  collectionName: 'components_home_page_components_cards';
+  info: {
+    displayName: 'Cards';
+    description: '';
+  };
+  attributes: {
+    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Title: Attribute.String;
+    Text: Attribute.Blocks;
+    CardStyle: Attribute.Enumeration<['standard', 'overlay']> &
+      Attribute.DefaultTo<'standard'>;
+    ButtonText: Attribute.String;
+    ButtonColor: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    CardColor: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    Link: Attribute.String;
+  };
+}
+
 export interface ContentPageComponentsButtons extends Schema.Component {
   collectionName: 'components_content_page_components_buttons';
   info: {
@@ -76,6 +97,20 @@ export interface ContentPageComponentsButtons extends Schema.Component {
       ['together', 'space between', 'spaced evenly']
     > &
       Attribute.DefaultTo<'together'>;
+  };
+}
+
+export interface ContentPageComponentsCardGroup extends Schema.Component {
+  collectionName: 'components_content_page_components_card_groups';
+  info: {
+    displayName: 'CardGroup';
+    icon: 'collapse';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Style: Attribute.Component<'content-page-components.style'>;
+    Cards: Attribute.Component<'card-group-components.cards', true>;
   };
 }
 
@@ -106,7 +141,7 @@ export interface ContentPageComponentsForm extends Schema.Component {
     sendTo: Attribute.Email & Attribute.Required;
     Style: Attribute.Component<'content-page-components.style'>;
     sendFrom: Attribute.Email &
-      Attribute.DefaultTo<'notifications@pacwestsoftwash.com'>;
+      Attribute.DefaultTo<'notifications@villawebsolutions.com'>;
     fields: Attribute.Component<'form-components.form-fields', true> &
       Attribute.Required;
   };
@@ -284,6 +319,20 @@ export interface FooterIconsComponentsEntry extends Schema.Component {
   };
 }
 
+export interface FormComponentsFormData extends Schema.Component {
+  collectionName: 'components_form_components_form_data';
+  info: {
+    displayName: 'FormData';
+    icon: 'archive';
+  };
+  attributes: {
+    SendFrom: Attribute.String &
+      Attribute.DefaultTo<'notifications@villawebsolutions.com'>;
+    SendTo: Attribute.String;
+    BodyTitle: Attribute.String;
+  };
+}
+
 export interface FormComponentsFormFields extends Schema.Component {
   collectionName: 'components_form_components_form_fields';
   info: {
@@ -343,6 +392,9 @@ export interface HomePageComponentsIntro extends Schema.Component {
       Attribute.DefaultTo<'Bottom Left'>;
     Style: Attribute.Component<'content-page-components.style'>;
     MobileFile: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    Buttons: Attribute.Component<'button-components.button-entry', true>;
+    FormFields: Attribute.Component<'form-components.form-fields', true>;
+    FormData: Attribute.Component<'form-components.form-data'>;
   };
 }
 
@@ -464,7 +516,9 @@ declare module '@strapi/types' {
       'asset-components.pdf': AssetComponentsPdf;
       'asset-components.video': AssetComponentsVideo;
       'button-components.button-entry': ButtonComponentsButtonEntry;
+      'card-group-components.cards': CardGroupComponentsCards;
       'content-page-components.buttons': ContentPageComponentsButtons;
+      'content-page-components.card-group': ContentPageComponentsCardGroup;
       'content-page-components.faq': ContentPageComponentsFaq;
       'content-page-components.form': ContentPageComponentsForm;
       'content-page-components.grid': ContentPageComponentsGrid;
@@ -478,6 +532,7 @@ declare module '@strapi/types' {
       'footer-components.image': FooterComponentsImage;
       'footer-components.text': FooterComponentsText;
       'footer-icons-components.entry': FooterIconsComponentsEntry;
+      'form-components.form-data': FormComponentsFormData;
       'form-components.form-fields': FormComponentsFormFields;
       'grid-components.grid-entry': GridComponentsGridEntry;
       'home-page-components.gallery': HomePageComponentsGallery;

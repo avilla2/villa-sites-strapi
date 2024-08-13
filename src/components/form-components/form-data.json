@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_form_components_form_data",
+  "info": {
+    "displayName": "FormData",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "SendFrom": {
+      "type": "string",
+      "default": "notifications@villawebsolutions.com"
+    },
+    "SendTo": {
+      "type": "string"
+    },
+    "BodyTitle": {
+      "type": "string"
+    }
+  }
+}
