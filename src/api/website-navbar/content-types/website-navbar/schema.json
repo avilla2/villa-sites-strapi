@@ -44,7 +44,8 @@
       "enum": [
         "Spaced",
         "Spread Out",
-        "Left Aligned"
+        "Left Aligned",
+        "Split"
       ],
       "pluginOptions": {
         "i18n": {

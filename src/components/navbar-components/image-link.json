@@ -22,6 +22,9 @@
     },
     "Width": {
       "type": "decimal"
+    },
+    "showInMobile": {
+      "type": "boolean"
     }
   }
 }

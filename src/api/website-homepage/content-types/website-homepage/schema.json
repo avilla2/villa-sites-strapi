@@ -39,7 +39,8 @@
         "content-page-components.paragraph",
         "content-page-components.card-group",
         "content-page-components.image",
-        "content-page-components.video"
+        "content-page-components.video",
+        "content-page-components.list"
       ],
       "pluginOptions": {
         "i18n": {

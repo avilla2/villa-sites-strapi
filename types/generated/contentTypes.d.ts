@@ -879,7 +879,8 @@ export interface ApiContentPageContentPage extends Schema.CollectionType {
         'content-page-components.instant-quote',
         'content-page-components.image',
         'content-page-components.video',
-        'content-page-components.card-group'
+        'content-page-components.card-group',
+        'content-page-components.list'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1129,7 +1130,8 @@ export interface ApiWebsiteHomepageWebsiteHomepage
         'content-page-components.paragraph',
         'content-page-components.card-group',
         'content-page-components.image',
-        'content-page-components.video'
+        'content-page-components.video',
+        'content-page-components.list'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1195,7 +1197,9 @@ export interface ApiWebsiteNavbarWebsiteNavbar extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    Style: Attribute.Enumeration<['Spaced', 'Spread Out', 'Left Aligned']> &
+    Style: Attribute.Enumeration<
+      ['Spaced', 'Spread Out', 'Left Aligned', 'Split']
+    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

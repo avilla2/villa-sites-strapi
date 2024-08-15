@@ -201,6 +201,22 @@ export interface ContentPageComponentsInstantQuote extends Schema.Component {
   };
 }
 
+export interface ContentPageComponentsList extends Schema.Component {
+  collectionName: 'components_content_page_components_lists';
+  info: {
+    displayName: 'List';
+    icon: 'bulletList';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Caption: Attribute.Blocks;
+    Items: Attribute.Component<'list-components.items', true>;
+    Icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Style: Attribute.Component<'content-page-components.style'>;
+  };
+}
+
 export interface ContentPageComponentsParagraph extends Schema.Component {
   collectionName: 'components_content_page_components_paragraphs';
   info: {
@@ -430,6 +446,17 @@ export interface InstantQuoteComponentsJobTypes extends Schema.Component {
   };
 }
 
+export interface ListComponentsItems extends Schema.Component {
+  collectionName: 'components_list_components_items';
+  info: {
+    displayName: 'Items';
+    icon: 'star';
+  };
+  attributes: {
+    Text: Attribute.Text;
+  };
+}
+
 export interface NavbarComponentsImageLink extends Schema.Component {
   collectionName: 'components_navbar_components_image_links';
   info: {
@@ -441,6 +468,7 @@ export interface NavbarComponentsImageLink extends Schema.Component {
     Image: Attribute.Media<'images'> & Attribute.Required;
     Link: Attribute.String & Attribute.Required;
     Width: Attribute.Decimal;
+    showInMobile: Attribute.Boolean;
   };
 }
 
@@ -524,6 +552,7 @@ declare module '@strapi/types' {
       'content-page-components.grid': ContentPageComponentsGrid;
       'content-page-components.image': ContentPageComponentsImage;
       'content-page-components.instant-quote': ContentPageComponentsInstantQuote;
+      'content-page-components.list': ContentPageComponentsList;
       'content-page-components.paragraph': ContentPageComponentsParagraph;
       'content-page-components.style': ContentPageComponentsStyle;
       'content-page-components.video': ContentPageComponentsVideo;
@@ -539,6 +568,7 @@ declare module '@strapi/types' {
       'home-page-components.intro': HomePageComponentsIntro;
       'home-page-components.media': HomePageComponentsMedia;
       'instant-quote-components.job-types': InstantQuoteComponentsJobTypes;
+      'list-components.items': ListComponentsItems;
       'navbar-components.image-link': NavbarComponentsImageLink;
       'navbar-components.mobile-config': NavbarComponentsMobileConfig;
       'navbar-components.nav-button': NavbarComponentsNavButton;
