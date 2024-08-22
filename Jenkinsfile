@@ -1,9 +1,5 @@
 pipeline { 
-    agent { 
-        docker { 
-            image 'node:18.20.0-alpine' 
-        } 
-    }
+    agent any
     options {
         skipStagesAfterUnstable()
     }
@@ -21,6 +17,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'cp -a . /srv/strapi-api/' 
+            }
+        }
+        stage('Reload Server') {
+            steps {
+                sh 'pm2 reload strapi-prod' 
             }
         }
     }
