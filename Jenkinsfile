@@ -18,9 +18,9 @@ pipeline {
                 sh 'npm run build' 
             }
         }
-        stage('Notify') {
+        stage('Deploy') {
             steps {
-                sh 'ls -a && pwd' 
+                sh 'cp -a . /srv/strapi-api/' 
             }
         }
     }

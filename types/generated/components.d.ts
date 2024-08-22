@@ -78,6 +78,8 @@ export interface CardGroupComponentsCards extends Schema.Component {
     CardColor: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
     Link: Attribute.String;
+    textColor: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
   };
 }
 
