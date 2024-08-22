@@ -35,6 +35,9 @@
     "EnableLocalization": {
       "type": "boolean",
       "default": false
+    },
+    "SiteTitle": {
+      "type": "string"
     }
   }
 }

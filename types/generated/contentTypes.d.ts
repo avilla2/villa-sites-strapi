@@ -1262,6 +1262,7 @@ export interface ApiWebsiteSettingWebsiteSetting extends Schema.CollectionType {
     DesktopBreakpoint: Attribute.Enumeration<['xs', 'sm', 'md', 'lg', 'xl']> &
       Attribute.DefaultTo<'md'>;
     EnableLocalization: Attribute.Boolean & Attribute.DefaultTo<false>;
+    SiteTitle: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
