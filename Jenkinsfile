@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'cp -a . /srv/strapi-api/' 
+                sh 'cp -a * /srv/strapi-api/' 
             }
         }
         stage('Reload Server') {
