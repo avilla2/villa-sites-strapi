@@ -690,10 +690,10 @@ export interface PluginUsersPermissionsRole extends Schema.CollectionType {
   };
   pluginOptions: {
     'content-manager': {
-      visible: false;
+      visible: true;
     };
     'content-type-builder': {
-      visible: false;
+      visible: true;
     };
   };
   attributes: {
@@ -781,6 +781,36 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::users-permissions.user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiAdminConfigAdminConfig extends Schema.SingleType {
+  collectionName: 'admin_configs';
+  info: {
+    singularName: 'admin-config';
+    pluralName: 'admin-configs';
+    displayName: 'admin_config';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    role_map: Attribute.Component<'admin.role-mappings', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::admin-config.admin-config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::admin-config.admin-config',
       'oneToOne',
       'admin::user'
     > &
@@ -1324,6 +1354,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::admin-config.admin-config': ApiAdminConfigAdminConfig;
       'api::asset.asset': ApiAssetAsset;
       'api::content-page.content-page': ApiContentPageContentPage;
       'api::email.email': ApiEmailEmail;

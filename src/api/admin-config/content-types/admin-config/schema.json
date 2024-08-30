@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "admin_configs",
+  "info": {
+    "singularName": "admin-config",
+    "pluralName": "admin-configs",
+    "displayName": "admin_config",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "role_map": {
+      "displayName": "Role Mappings",
+      "type": "component",
+      "repeatable": true,
+      "component": "admin.role-mappings"
+    }
+  }
+}
