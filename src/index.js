@@ -30,14 +30,24 @@ module.exports = {
     mapping.role_map.forEach((map) => {
       simplifiedMapping[map.role.id] = map.website.id
     })
-
-    await strapi.admin.services.permission.conditionProvider.register({
-      displayName: 'User has correct role',
-      name: 'user-has-role',
-      async handler(user) {
-        const mappedRoles = user.roles.map((r) => simplifiedMapping[r.id])
-        return { "website.id": { $in: [...mappedRoles, null] } };
+    const conditions = [
+      {
+        displayName: 'content belongs to role (Website)',
+        name: 'website-based-access',
+        async handler(user) {
+          const mappedRoles = user.roles.map((r) => simplifiedMapping[r.id])
+          return { "id": { $in: mappedRoles } };
+        },
       },
-    });
+      {
+        displayName: 'content belongs to role (Site Content)',
+        name: 'website-based-access-content',
+        async handler(user) {
+          const mappedRoles = user.roles.map((r) => simplifiedMapping[r.id])
+          return { "website.id": { $in: [...mappedRoles, null] } };
+        },
+      },
+    ]
+    await strapi.admin.services.permission.conditionProvider.registerMany(conditions);
   },
 };

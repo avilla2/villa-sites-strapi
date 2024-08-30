@@ -1304,7 +1304,7 @@ export interface ApiWebsiteSettingWebsiteSetting extends Schema.CollectionType {
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     Palette: Attribute.Component<'site-settings-components.color-palette'>;
@@ -1320,7 +1320,6 @@ export interface ApiWebsiteSettingWebsiteSetting extends Schema.CollectionType {
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::website-setting.website-setting',
       'oneToOne',
