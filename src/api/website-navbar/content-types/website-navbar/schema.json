@@ -80,6 +80,12 @@
       },
       "type": "string",
       "required": true
+    },
+    "website": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::website.website",
+      "mappedBy": "navbar"
     }
   }
 }

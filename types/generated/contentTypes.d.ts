@@ -894,6 +894,11 @@ export interface ApiContentPageContentPage extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    website: Attribute.Relation<
+      'api::content-page.content-page',
+      'manyToOne',
+      'api::website.website'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -970,17 +975,17 @@ export interface ApiWebsiteWebsite extends Schema.CollectionType {
     };
   };
   attributes: {
-    Navbar: Attribute.Relation<
+    navbar: Attribute.Relation<
       'api::website.website',
       'oneToOne',
       'api::website-navbar.website-navbar'
     >;
-    Footer: Attribute.Relation<
+    footer: Attribute.Relation<
       'api::website.website',
       'oneToOne',
       'api::website-footer.website-footer'
     >;
-    Name: Attribute.String &
+    name: Attribute.String &
       Attribute.Required &
       Attribute.Unique &
       Attribute.SetPluginOptions<{
@@ -988,17 +993,17 @@ export interface ApiWebsiteWebsite extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    Homepage: Attribute.Relation<
+    homepage: Attribute.Relation<
       'api::website.website',
       'oneToOne',
       'api::website-homepage.website-homepage'
     >;
-    SiteSettings: Attribute.Relation<
+    site_settings: Attribute.Relation<
       'api::website.website',
       'oneToOne',
       'api::website-setting.website-setting'
     >;
-    ContentPages: Attribute.Relation<
+    content_pages: Attribute.Relation<
       'api::website.website',
       'oneToMany',
       'api::content-page.content-page'
@@ -1069,6 +1074,11 @@ export interface ApiWebsiteFooterWebsiteFooter extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    website: Attribute.Relation<
+      'api::website-footer.website-footer',
+      'oneToOne',
+      'api::website.website'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1139,6 +1149,11 @@ export interface ApiWebsiteHomepageWebsiteHomepage
           localized: true;
         };
       }>;
+    website: Attribute.Relation<
+      'api::website-homepage.website-homepage',
+      'oneToOne',
+      'api::website.website'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1222,6 +1237,11 @@ export interface ApiWebsiteNavbarWebsiteNavbar extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    website: Attribute.Relation<
+      'api::website-navbar.website-navbar',
+      'oneToOne',
+      'api::website.website'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1263,6 +1283,11 @@ export interface ApiWebsiteSettingWebsiteSetting extends Schema.CollectionType {
       Attribute.DefaultTo<'md'>;
     EnableLocalization: Attribute.Boolean & Attribute.DefaultTo<false>;
     SiteTitle: Attribute.String;
+    website: Attribute.Relation<
+      'api::website-setting.website-setting',
+      'oneToOne',
+      'api::website.website'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

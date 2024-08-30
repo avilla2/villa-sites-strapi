@@ -16,17 +16,19 @@
     }
   },
   "attributes": {
-    "Navbar": {
+    "navbar": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::website-navbar.website-navbar"
+      "target": "api::website-navbar.website-navbar",
+      "inversedBy": "website"
     },
-    "Footer": {
+    "footer": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::website-footer.website-footer"
+      "target": "api::website-footer.website-footer",
+      "inversedBy": "website"
     },
-    "Name": {
+    "name": {
       "type": "string",
       "unique": true,
       "required": true,
@@ -36,20 +38,23 @@
         }
       }
     },
-    "Homepage": {
+    "homepage": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::website-homepage.website-homepage"
+      "target": "api::website-homepage.website-homepage",
+      "inversedBy": "website"
     },
-    "SiteSettings": {
+    "site_settings": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::website-setting.website-setting"
+      "target": "api::website-setting.website-setting",
+      "inversedBy": "website"
     },
-    "ContentPages": {
+    "content_pages": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::content-page.content-page"
+      "target": "api::content-page.content-page",
+      "mappedBy": "website"
     }
   }
 }

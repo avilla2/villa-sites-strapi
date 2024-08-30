@@ -66,6 +66,12 @@
         }
       },
       "type": "string"
+    },
+    "website": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::website.website",
+      "inversedBy": "content_pages"
     }
   }
 }
