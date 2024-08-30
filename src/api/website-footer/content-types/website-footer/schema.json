@@ -47,6 +47,12 @@
       "type": "customField",
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
       "customField": "plugin::color-picker.color"
+    },
+    "website": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::website.website",
+      "mappedBy": "footer"
     }
   }
 }

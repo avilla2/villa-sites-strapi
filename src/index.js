@@ -1,5 +1,9 @@
 'use strict';
 
+// const getService = (name) => {
+//   return strapi.plugin("content-manager").service(name);
+// };
+
 module.exports = {
   /**
    * An asynchronous register function that runs before
@@ -16,5 +20,34 @@ module.exports = {
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
    */
-  bootstrap(/*{ strapi }*/) {},
+  async bootstrap(/*{ strapi }*/) {
+    const mapping = await strapi.entityService.findOne('api::admin-config.admin-config', 1, {
+      fields: ['id'],
+      populate: { role_map: {fields: ['id'], populate: {role: {fields: ['id', 'name']}, website: {fields: ['id', 'name']}}} },
+    })
+    const simplifiedMapping = {}
+        // @ts-ignore
+    mapping.role_map.forEach((map) => {
+      simplifiedMapping[map.role.id] = map.website.id
+    })
+    const conditions = [
+      {
+        displayName: 'content belongs to role (Website)',
+        name: 'website-based-access',
+        async handler(user) {
+          const mappedRoles = user.roles.map((r) => simplifiedMapping[r.id])
+          return { "id": { $in: mappedRoles } };
+        },
+      },
+      {
+        displayName: 'content belongs to role (Site Content)',
+        name: 'website-based-access-content',
+        async handler(user) {
+          const mappedRoles = user.roles.map((r) => simplifiedMapping[r.id])
+          return { "website.id": { $in: [...mappedRoles, null] } };
+        },
+      },
+    ]
+    await strapi.admin.services.permission.conditionProvider.registerMany(conditions);
+  },
 };

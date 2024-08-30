@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_admin_role_mappings",
+  "info": {
+    "displayName": "Role Mappings",
+    "icon": "puzzle",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "role": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::role"
+    },
+    "website": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::website.website"
+    }
+  }
+}

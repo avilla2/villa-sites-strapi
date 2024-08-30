@@ -1,5 +1,22 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface AdminRoleMappings extends Schema.Component {
+  collectionName: 'components_admin_role_mappings';
+  info: {
+    displayName: 'Role Mappings';
+    icon: 'puzzle';
+    description: '';
+  };
+  attributes: {
+    role: Attribute.Relation<'admin.role-mappings', 'oneToOne', 'admin::role'>;
+    website: Attribute.Relation<
+      'admin.role-mappings',
+      'oneToOne',
+      'api::website.website'
+    >;
+  };
+}
+
 export interface AssetComponentsImage extends Schema.Component {
   collectionName: 'components_asset_components_images';
   info: {
@@ -542,6 +559,7 @@ export interface SiteSettingsComponentsColorPalette extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'admin.role-mappings': AdminRoleMappings;
       'asset-components.image': AssetComponentsImage;
       'asset-components.pdf': AssetComponentsPdf;
       'asset-components.video': AssetComponentsVideo;

@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -38,6 +38,12 @@
     },
     "SiteTitle": {
       "type": "string"
+    },
+    "website": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::website.website",
+      "mappedBy": "site_settings"
     }
   }
 }

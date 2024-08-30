@@ -47,6 +47,12 @@
           "localized": true
         }
       }
+    },
+    "website": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::website.website",
+      "mappedBy": "homepage"
     }
   }
 }
