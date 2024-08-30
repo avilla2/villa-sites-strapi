@@ -5,13 +5,10 @@ export interface AdminRoleMappings extends Schema.Component {
   info: {
     displayName: 'Role Mappings';
     icon: 'puzzle';
+    description: '';
   };
   attributes: {
-    role: Attribute.Relation<
-      'admin.role-mappings',
-      'oneToOne',
-      'plugin::users-permissions.role'
-    >;
+    role: Attribute.Relation<'admin.role-mappings', 'oneToOne', 'admin::role'>;
     website: Attribute.Relation<
       'admin.role-mappings',
       'oneToOne',

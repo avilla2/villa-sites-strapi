@@ -2,14 +2,15 @@
   "collectionName": "components_admin_role_mappings",
   "info": {
     "displayName": "Role Mappings",
-    "icon": "puzzle"
+    "icon": "puzzle",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "role": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "plugin::users-permissions.role"
+      "target": "admin::role"
     },
     "website": {
       "type": "relation",
