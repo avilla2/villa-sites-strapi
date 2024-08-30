@@ -26,10 +26,13 @@ module.exports = {
       populate: { role_map: {fields: ['id'], populate: {role: {fields: ['id', 'name']}, website: {fields: ['id', 'name']}}} },
     })
     const simplifiedMapping = {}
-        // @ts-ignore
-    mapping.role_map.forEach((map) => {
-      simplifiedMapping[map.role.id] = map.website.id
-    })
+    // @ts-ignore
+    if (mapping.role_map) {
+      // @ts-ignore
+      mapping.role_map.forEach((map) => {
+        simplifiedMapping[map.role.id] = map.website.id
+      })
+    }
     const conditions = [
       {
         displayName: 'content belongs to role (Website)',
