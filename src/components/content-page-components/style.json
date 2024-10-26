@@ -34,6 +34,12 @@
         "right"
       ],
       "default": "center"
+    },
+    "size": {
+      "type": "integer",
+      "default": 12,
+      "max": 12,
+      "min": 3
     }
   }
 }

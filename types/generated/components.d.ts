@@ -266,6 +266,15 @@ export interface ContentPageComponentsStyle extends Schema.Component {
       Attribute.CustomField<'plugin::color-picker.color'>;
     textAlign: Attribute.Enumeration<['left', 'center', 'right']> &
       Attribute.DefaultTo<'center'>;
+    size: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 3;
+          max: 12;
+        },
+        number
+      > &
+      Attribute.DefaultTo<12>;
   };
 }
 
@@ -451,6 +460,28 @@ export interface HomePageComponentsMedia extends Schema.Component {
   };
 }
 
+export interface HomePageComponentsSlideshow extends Schema.Component {
+  collectionName: 'components_home_page_components_slideshows';
+  info: {
+    displayName: 'slideshow';
+    icon: 'landscape';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    slidesMobile: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    slidesDesktop: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    Style: Attribute.Component<'content-page-components.style'>;
+    uuid: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface InstantQuoteComponentsJobTypes extends Schema.Component {
   collectionName: 'components_instant_quote_components_job_types';
   info: {
@@ -587,6 +618,7 @@ declare module '@strapi/types' {
       'home-page-components.gallery': HomePageComponentsGallery;
       'home-page-components.intro': HomePageComponentsIntro;
       'home-page-components.media': HomePageComponentsMedia;
+      'home-page-components.slideshow': HomePageComponentsSlideshow;
       'instant-quote-components.job-types': InstantQuoteComponentsJobTypes;
       'list-components.items': ListComponentsItems;
       'navbar-components.image-link': NavbarComponentsImageLink;

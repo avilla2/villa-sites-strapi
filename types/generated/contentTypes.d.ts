@@ -910,7 +910,8 @@ export interface ApiContentPageContentPage extends Schema.CollectionType {
         'content-page-components.image',
         'content-page-components.video',
         'content-page-components.card-group',
-        'content-page-components.list'
+        'content-page-components.list',
+        'home-page-components.slideshow'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1171,7 +1172,8 @@ export interface ApiWebsiteHomepageWebsiteHomepage
         'content-page-components.card-group',
         'content-page-components.image',
         'content-page-components.video',
-        'content-page-components.list'
+        'content-page-components.list',
+        'home-page-components.slideshow'
       ]
     > &
       Attribute.SetPluginOptions<{
