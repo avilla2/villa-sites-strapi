@@ -51,7 +51,8 @@
         "content-page-components.image",
         "content-page-components.video",
         "content-page-components.card-group",
-        "content-page-components.list"
+        "content-page-components.list",
+        "home-page-components.slideshow"
       ],
       "pluginOptions": {
         "i18n": {
