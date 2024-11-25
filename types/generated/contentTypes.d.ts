@@ -1230,7 +1230,8 @@ export interface ApiWebsiteNavbarWebsiteNavbar extends Schema.CollectionType {
       [
         'navbar-components.image-link',
         'navbar-components.text-link',
-        'navbar-components.nav-button'
+        'navbar-components.nav-button',
+        'navbar-components.nav-menu'
       ]
     > &
       Attribute.SetPluginOptions<{

@@ -12,7 +12,8 @@
     },
     "Link": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "/"
     },
     "Color": {
       "type": "customField",

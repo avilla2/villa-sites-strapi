@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_navbar_components_nav_menus",
+  "info": {
+    "displayName": "Nav Menu",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "menuItem": {
+      "displayName": "Menu Item",
+      "type": "component",
+      "repeatable": true,
+      "component": "navbar-menu-components.menu-item"
+    }
+  }
+}

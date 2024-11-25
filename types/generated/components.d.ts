@@ -545,9 +545,22 @@ export interface NavbarComponentsNavButton extends Schema.Component {
   };
   attributes: {
     Text: Attribute.String;
-    Link: Attribute.String & Attribute.Required;
+    Link: Attribute.String & Attribute.Required & Attribute.DefaultTo<'/'>;
     Color: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
+  };
+}
+
+export interface NavbarComponentsNavMenu extends Schema.Component {
+  collectionName: 'components_navbar_components_nav_menus';
+  info: {
+    displayName: 'Nav Menu';
+    icon: 'bulletList';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    menuItem: Attribute.Component<'navbar-menu-components.menu-item', true>;
   };
 }
 
@@ -561,6 +574,20 @@ export interface NavbarComponentsTextLink extends Schema.Component {
   attributes: {
     Title: Attribute.String & Attribute.Required;
     Link: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface NavbarMenuComponentsMenuItem extends Schema.Component {
+  collectionName: 'components_navbar_menu_components_menu_items';
+  info: {
+    displayName: 'Menu Item';
+    icon: 'plus';
+    description: '';
+  };
+  attributes: {
+    text: Attribute.String & Attribute.Required;
+    link: Attribute.String & Attribute.Required & Attribute.DefaultTo<'/'>;
+    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -624,7 +651,9 @@ declare module '@strapi/types' {
       'navbar-components.image-link': NavbarComponentsImageLink;
       'navbar-components.mobile-config': NavbarComponentsMobileConfig;
       'navbar-components.nav-button': NavbarComponentsNavButton;
+      'navbar-components.nav-menu': NavbarComponentsNavMenu;
       'navbar-components.text-link': NavbarComponentsTextLink;
+      'navbar-menu-components.menu-item': NavbarMenuComponentsMenuItem;
       'site-settings-components.color-palette': SiteSettingsComponentsColorPalette;
     }
   }
