@@ -460,6 +460,20 @@ export interface HomePageComponentsMedia extends Schema.Component {
   };
 }
 
+export interface HomePageComponentsRichText extends Schema.Component {
+  collectionName: 'components_home_page_components_rich_texts';
+  info: {
+    displayName: 'Rich Text';
+    icon: 'quote';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Style: Attribute.Component<'content-page-components.style'>;
+    RichText: Attribute.Blocks;
+  };
+}
+
 export interface HomePageComponentsSlideshow extends Schema.Component {
   collectionName: 'components_home_page_components_slideshows';
   info: {
@@ -645,6 +659,7 @@ declare module '@strapi/types' {
       'home-page-components.gallery': HomePageComponentsGallery;
       'home-page-components.intro': HomePageComponentsIntro;
       'home-page-components.media': HomePageComponentsMedia;
+      'home-page-components.rich-text': HomePageComponentsRichText;
       'home-page-components.slideshow': HomePageComponentsSlideshow;
       'instant-quote-components.job-types': InstantQuoteComponentsJobTypes;
       'list-components.items': ListComponentsItems;

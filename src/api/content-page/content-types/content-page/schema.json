@@ -52,7 +52,8 @@
         "content-page-components.video",
         "content-page-components.card-group",
         "content-page-components.list",
-        "home-page-components.slideshow"
+        "home-page-components.slideshow",
+        "home-page-components.rich-text"
       ],
       "pluginOptions": {
         "i18n": {
