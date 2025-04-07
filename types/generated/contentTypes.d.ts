@@ -697,6 +697,14 @@ export interface ApiWebsiteHomepageWebsiteHomepage
           localized: true;
         };
       }>;
+    Title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'Homepage'>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::website-homepage.website-homepage',

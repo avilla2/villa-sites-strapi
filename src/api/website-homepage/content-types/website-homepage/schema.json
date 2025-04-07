@@ -55,6 +55,16 @@
       "relation": "oneToOne",
       "target": "api::website.website",
       "mappedBy": "homepage"
+    },
+    "Title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true,
+      "default": "Homepage"
     }
   }
 }
