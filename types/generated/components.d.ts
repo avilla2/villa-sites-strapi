@@ -1,11 +1,11 @@
-import type { Schema, Attribute } from '@strapi/strapi';
+import type { Attribute, Schema } from '@strapi/strapi';
 
 export interface AdminRoleMappings extends Schema.Component {
   collectionName: 'components_admin_role_mappings';
   info: {
+    description: '';
     displayName: 'Role Mappings';
     icon: 'puzzle';
-    description: '';
   };
   attributes: {
     role: Attribute.Relation<'admin.role-mappings', 'oneToOne', 'admin::role'>;
@@ -20,25 +20,25 @@ export interface AdminRoleMappings extends Schema.Component {
 export interface AssetComponentsImage extends Schema.Component {
   collectionName: 'components_asset_components_images';
   info: {
+    description: '';
     displayName: 'Image';
     icon: 'picture';
-    description: '';
   };
   attributes: {
     File: Attribute.Media<'images'> & Attribute.Required;
-    Width: Attribute.Integer & Attribute.DefaultTo<80>;
+    Height: Attribute.Integer;
     Style: Attribute.Enumeration<['Regular', 'Parallax']> &
       Attribute.DefaultTo<'Regular'>;
-    Height: Attribute.Integer;
+    Width: Attribute.Integer & Attribute.DefaultTo<80>;
   };
 }
 
 export interface AssetComponentsPdf extends Schema.Component {
   collectionName: 'components_asset_components_pdfs';
   info: {
+    description: '';
     displayName: 'PDF';
     icon: 'filePdf';
-    description: '';
   };
   attributes: {
     File: Attribute.Media<'files'> & Attribute.Required;
@@ -48,252 +48,252 @@ export interface AssetComponentsPdf extends Schema.Component {
 export interface AssetComponentsVideo extends Schema.Component {
   collectionName: 'components_asset_components_videos';
   info: {
+    description: '';
     displayName: 'Video';
     icon: 'play';
-    description: '';
   };
   attributes: {
-    File: Attribute.Media<'videos'> & Attribute.Required;
     Autoplay: Attribute.Boolean & Attribute.DefaultTo<false>;
-    Loop: Attribute.Boolean & Attribute.DefaultTo<false>;
-    Width: Attribute.Integer & Attribute.DefaultTo<80>;
-    Muted: Attribute.Boolean & Attribute.DefaultTo<false>;
     Controls: Attribute.Boolean & Attribute.DefaultTo<true>;
+    File: Attribute.Media<'videos'> & Attribute.Required;
+    Loop: Attribute.Boolean & Attribute.DefaultTo<false>;
+    Muted: Attribute.Boolean & Attribute.DefaultTo<false>;
+    Width: Attribute.Integer & Attribute.DefaultTo<80>;
   };
 }
 
 export interface ButtonComponentsButtonEntry extends Schema.Component {
   collectionName: 'components_button_components_button_entries';
   info: {
+    description: '';
     displayName: 'Button Entry';
     icon: 'bold';
-    description: '';
   };
   attributes: {
-    Text: Attribute.String;
-    Link: Attribute.String;
     ButtonColor: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
+    Link: Attribute.String;
+    Text: Attribute.String;
   };
 }
 
 export interface CardGroupComponentsCards extends Schema.Component {
   collectionName: 'components_home_page_components_cards';
   info: {
-    displayName: 'Cards';
     description: '';
+    displayName: 'Cards';
   };
   attributes: {
-    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Title: Attribute.String;
-    Text: Attribute.Blocks;
-    CardStyle: Attribute.Enumeration<['standard', 'overlay']> &
-      Attribute.DefaultTo<'standard'>;
-    ButtonText: Attribute.String;
     ButtonColor: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
+    ButtonText: Attribute.String;
     CardColor: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
+    CardStyle: Attribute.Enumeration<['standard', 'overlay']> &
+      Attribute.DefaultTo<'standard'>;
+    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Link: Attribute.String;
+    Text: Attribute.Blocks;
     TextColor: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
+    Title: Attribute.String;
   };
 }
 
 export interface ContentPageComponentsButtons extends Schema.Component {
   collectionName: 'components_content_page_components_buttons';
   info: {
+    description: '';
     displayName: 'Buttons';
     icon: 'chartBubble';
-    description: '';
   };
   attributes: {
-    Entry: Attribute.Component<'button-components.button-entry', true>;
-    Style: Attribute.Component<'content-page-components.style'>;
-    ButtonStyle: Attribute.Enumeration<['contained', 'outlined', 'text']> &
-      Attribute.DefaultTo<'outlined'>;
     ButtonArrangement: Attribute.Enumeration<
       ['together', 'space between', 'spaced evenly']
     > &
       Attribute.DefaultTo<'together'>;
+    ButtonStyle: Attribute.Enumeration<['contained', 'outlined', 'text']> &
+      Attribute.DefaultTo<'outlined'>;
+    Entry: Attribute.Component<'button-components.button-entry', true>;
+    Style: Attribute.Component<'content-page-components.style'>;
   };
 }
 
 export interface ContentPageComponentsCardGroup extends Schema.Component {
   collectionName: 'components_content_page_components_card_groups';
   info: {
+    description: '';
     displayName: 'CardGroup';
     icon: 'collapse';
-    description: '';
   };
   attributes: {
-    Title: Attribute.String;
-    Style: Attribute.Component<'content-page-components.style'>;
     Cards: Attribute.Component<'card-group-components.cards', true>;
+    Style: Attribute.Component<'content-page-components.style'>;
+    Title: Attribute.String;
   };
 }
 
 export interface ContentPageComponentsFaq extends Schema.Component {
   collectionName: 'components_content_page_components_faqs';
   info: {
+    description: '';
     displayName: 'FAQ';
     icon: 'question';
-    description: '';
   };
   attributes: {
-    Title: Attribute.String;
     Entry: Attribute.Component<'faq-components.faq-entry', true>;
     Style: Attribute.Component<'content-page-components.style'>;
+    Title: Attribute.String;
   };
 }
 
 export interface ContentPageComponentsForm extends Schema.Component {
   collectionName: 'components_content_page_components_forms';
   info: {
+    description: '';
     displayName: 'Form';
     icon: 'envelop';
-    description: '';
   };
   attributes: {
-    Title: Attribute.String;
     bodyTitle: Attribute.String;
-    sendTo: Attribute.Email & Attribute.Required;
-    Style: Attribute.Component<'content-page-components.style'>;
-    sendFrom: Attribute.Email &
-      Attribute.DefaultTo<'notifications@villawebsolutions.com'>;
     fields: Attribute.Component<'form-components.form-fields', true> &
       Attribute.Required;
+    sendFrom: Attribute.Email &
+      Attribute.DefaultTo<'notifications@villawebsolutions.com'>;
+    sendTo: Attribute.Email & Attribute.Required;
+    Style: Attribute.Component<'content-page-components.style'>;
+    Title: Attribute.String;
   };
 }
 
 export interface ContentPageComponentsGrid extends Schema.Component {
   collectionName: 'components_content_page_components_grids';
   info: {
+    description: '';
     displayName: 'Grid';
     icon: 'layout';
-    description: '';
   };
   attributes: {
-    Title: Attribute.String;
     Entry: Attribute.Component<'grid-components.grid-entry', true>;
     Style: Attribute.Component<'content-page-components.style'>;
+    Title: Attribute.String;
   };
 }
 
 export interface ContentPageComponentsImage extends Schema.Component {
   collectionName: 'components_content_page_components_images';
   info: {
+    description: '';
     displayName: 'Image';
     icon: 'landscape';
-    description: '';
   };
   attributes: {
     asset: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    width: Attribute.Integer & Attribute.DefaultTo<80>;
-    height: Attribute.Integer;
-    imageStyle: Attribute.Enumeration<['Regular', 'Parallax']>;
     caption: Attribute.RichText;
-    Style: Attribute.Component<'content-page-components.style'>;
     captionLocation: Attribute.Enumeration<['top', 'left', 'bottom', 'right']> &
       Attribute.DefaultTo<'bottom'>;
+    height: Attribute.Integer;
+    imageStyle: Attribute.Enumeration<['Regular', 'Parallax']>;
+    Style: Attribute.Component<'content-page-components.style'>;
+    width: Attribute.Integer & Attribute.DefaultTo<80>;
   };
 }
 
 export interface ContentPageComponentsInstantQuote extends Schema.Component {
   collectionName: 'components_content_page_components_instant_quotes';
   info: {
+    description: '';
     displayName: 'InstantQuote';
     icon: 'information';
-    description: '';
   };
   attributes: {
-    Title: Attribute.String;
-    Style: Attribute.Component<'content-page-components.style'>;
-    ButtonStyle: Attribute.Enumeration<['contained', 'outlined', 'text']> &
-      Attribute.DefaultTo<'outlined'>;
     ButtonColor: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
-    Entry: Attribute.Component<'instant-quote-components.job-types', true>;
-    SendTo: Attribute.Email;
-    SendFrom: Attribute.Email;
+    ButtonStyle: Attribute.Enumeration<['contained', 'outlined', 'text']> &
+      Attribute.DefaultTo<'outlined'>;
     ButtonText: Attribute.String;
+    Entry: Attribute.Component<'instant-quote-components.job-types', true>;
+    SendFrom: Attribute.Email;
+    SendTo: Attribute.Email;
+    Style: Attribute.Component<'content-page-components.style'>;
+    Title: Attribute.String;
   };
 }
 
 export interface ContentPageComponentsList extends Schema.Component {
   collectionName: 'components_content_page_components_lists';
   info: {
+    description: '';
     displayName: 'List';
     icon: 'bulletList';
-    description: '';
   };
   attributes: {
-    Title: Attribute.String;
     Caption: Attribute.Blocks;
-    Items: Attribute.Component<'list-components.items', true>;
     Icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Items: Attribute.Component<'list-components.items', true>;
     Style: Attribute.Component<'content-page-components.style'>;
+    Title: Attribute.String;
   };
 }
 
 export interface ContentPageComponentsParagraph extends Schema.Component {
   collectionName: 'components_content_page_components_paragraphs';
   info: {
+    description: '';
     displayName: 'Paragraph';
     icon: 'filter';
-    description: '';
   };
   attributes: {
-    Title: Attribute.String;
     Body: Attribute.RichText;
     Style: Attribute.Component<'content-page-components.style'>;
+    Title: Attribute.String;
   };
 }
 
 export interface ContentPageComponentsStyle extends Schema.Component {
   collectionName: 'components_content_page_components_styles';
   info: {
+    description: '';
     displayName: 'Style';
     icon: 'chartBubble';
-    description: '';
   };
   attributes: {
     Animation: Attribute.Enumeration<['None', 'Fade', 'Slide']> &
       Attribute.DefaultTo<'None'>;
     BackgroundColor: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
-    TextColor: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    textAlign: Attribute.Enumeration<['left', 'center', 'right']> &
-      Attribute.DefaultTo<'center'>;
     size: Attribute.Integer &
       Attribute.SetMinMax<
         {
-          min: 3;
           max: 12;
+          min: 3;
         },
         number
       > &
       Attribute.DefaultTo<12>;
+    textAlign: Attribute.Enumeration<['left', 'center', 'right']> &
+      Attribute.DefaultTo<'center'>;
+    TextColor: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
   };
 }
 
 export interface ContentPageComponentsVideo extends Schema.Component {
   collectionName: 'components_content_page_components_videos';
   info: {
+    description: '';
     displayName: 'Video';
     icon: 'slideshow';
-    description: '';
   };
   attributes: {
     asset: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    width: Attribute.Integer & Attribute.DefaultTo<80>;
-    caption: Attribute.RichText;
-    Style: Attribute.Component<'content-page-components.style'>;
     autoplay: Attribute.Boolean;
+    caption: Attribute.RichText;
+    controls: Attribute.Boolean;
     loop: Attribute.Boolean;
     muted: Attribute.Boolean;
-    controls: Attribute.Boolean;
+    Style: Attribute.Component<'content-page-components.style'>;
+    width: Attribute.Integer & Attribute.DefaultTo<80>;
   };
 }
 
@@ -304,17 +304,17 @@ export interface FaqComponentsFaqEntry extends Schema.Component {
     icon: 'feather';
   };
   attributes: {
-    Title: Attribute.String;
     Body: Attribute.RichText;
+    Title: Attribute.String;
   };
 }
 
 export interface FooterComponentsIcons extends Schema.Component {
   collectionName: 'components_footer_components_icons';
   info: {
+    description: '';
     displayName: 'Icons';
     icon: 'grid';
-    description: '';
   };
   attributes: {
     Entry: Attribute.Component<'footer-icons-components.entry', true>;
@@ -341,25 +341,25 @@ export interface FooterComponentsText extends Schema.Component {
     icon: 'layer';
   };
   attributes: {
-    Text: Attribute.RichText;
     Space: Attribute.Integer;
+    Text: Attribute.RichText;
   };
 }
 
 export interface FooterIconsComponentsEntry extends Schema.Component {
   collectionName: 'components_footer_icons_components_entries';
   info: {
+    description: '';
     displayName: 'Entry';
     icon: 'layer';
-    description: '';
   };
   attributes: {
-    Link: Attribute.String;
+    Color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
     Icon: Attribute.Enumeration<
       ['Facebook', 'Instagram', 'X', 'Youtube', 'TikTok']
     >;
-    Color: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
+    Link: Attribute.String;
   };
 }
 
@@ -370,27 +370,27 @@ export interface FormComponentsFormData extends Schema.Component {
     icon: 'archive';
   };
   attributes: {
+    BodyTitle: Attribute.String;
     SendFrom: Attribute.String &
       Attribute.DefaultTo<'notifications@villawebsolutions.com'>;
     SendTo: Attribute.String;
-    BodyTitle: Attribute.String;
   };
 }
 
 export interface FormComponentsFormFields extends Schema.Component {
   collectionName: 'components_form_components_form_fields';
   info: {
+    description: '';
     displayName: 'Form Fields';
     icon: 'bulletList';
-    description: '';
   };
   attributes: {
-    name: Attribute.String & Attribute.Required;
-    validation: Attribute.String;
-    label: Attribute.String & Attribute.Required;
-    type: Attribute.Enumeration<['any', 'phone']> & Attribute.DefaultTo<'any'>;
-    includeInSubjectLine: Attribute.Boolean;
     fullWidth: Attribute.Boolean;
+    includeInSubjectLine: Attribute.Boolean;
+    label: Attribute.String & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+    type: Attribute.Enumeration<['any', 'phone']> & Attribute.DefaultTo<'any'>;
+    validation: Attribute.String;
   };
 }
 
@@ -401,97 +401,97 @@ export interface GridComponentsGridEntry extends Schema.Component {
     icon: 'apps';
   };
   attributes: {
-    Picture: Attribute.Media<'images'>;
     Caption: Attribute.RichText;
+    Picture: Attribute.Media<'images'>;
   };
 }
 
 export interface HomePageComponentsGallery extends Schema.Component {
   collectionName: 'components_home_page_components_galleries';
   info: {
+    description: '';
     displayName: 'Gallery';
     icon: 'landscape';
-    description: '';
   };
   attributes: {
     Pictures: Attribute.Media<'images', true>;
-    Title: Attribute.String;
     Style: Attribute.Component<'content-page-components.style'>;
+    Title: Attribute.String;
   };
 }
 
 export interface HomePageComponentsIntro extends Schema.Component {
   collectionName: 'components_home_page_components_intros';
   info: {
+    description: '';
     displayName: 'Intro';
     icon: 'picture';
-    description: '';
   };
   attributes: {
+    Buttons: Attribute.Component<'button-components.button-entry', true>;
     File: Attribute.Media<'videos' | 'images', true> & Attribute.Required;
+    FormData: Attribute.Component<'form-components.form-data'>;
+    FormFields: Attribute.Component<'form-components.form-fields', true>;
     IntroText: Attribute.RichText;
+    MobileFile: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    Style: Attribute.Component<'content-page-components.style'>;
     TextPosition: Attribute.Enumeration<
       ['Bottom Left', 'Bottom Right', 'Centered']
     > &
       Attribute.DefaultTo<'Bottom Left'>;
-    Style: Attribute.Component<'content-page-components.style'>;
-    MobileFile: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    Buttons: Attribute.Component<'button-components.button-entry', true>;
-    FormFields: Attribute.Component<'form-components.form-fields', true>;
-    FormData: Attribute.Component<'form-components.form-data'>;
   };
 }
 
 export interface HomePageComponentsMedia extends Schema.Component {
   collectionName: 'components_home_page_components_media';
   info: {
+    description: '';
     displayName: 'Media';
     icon: 'archive';
-    description: '';
   };
   attributes: {
-    Title: Attribute.String;
     asset: Attribute.Relation<
       'home-page-components.media',
       'oneToOne',
       'api::asset.asset'
     >;
     Style: Attribute.Component<'content-page-components.style'>;
+    Title: Attribute.String;
   };
 }
 
 export interface HomePageComponentsRichText extends Schema.Component {
   collectionName: 'components_home_page_components_rich_texts';
   info: {
+    description: '';
     displayName: 'Rich Text';
     icon: 'quote';
-    description: '';
   };
   attributes: {
-    Title: Attribute.String;
-    Style: Attribute.Component<'content-page-components.style'>;
     RichText: Attribute.Blocks;
+    Style: Attribute.Component<'content-page-components.style'>;
+    Title: Attribute.String;
   };
 }
 
 export interface HomePageComponentsSlideshow extends Schema.Component {
   collectionName: 'components_home_page_components_slideshows';
   info: {
+    description: '';
     displayName: 'slideshow';
     icon: 'landscape';
-    description: '';
   };
   attributes: {
-    Title: Attribute.String;
-    slidesMobile: Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
     slidesDesktop: Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+    slidesMobile: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     Style: Attribute.Component<'content-page-components.style'>;
+    Title: Attribute.String;
     uuid: Attribute.String & Attribute.Required;
   };
 }
@@ -499,14 +499,14 @@ export interface HomePageComponentsSlideshow extends Schema.Component {
 export interface InstantQuoteComponentsJobTypes extends Schema.Component {
   collectionName: 'components_instant_quote_components_job_types';
   info: {
+    description: '';
     displayName: 'Job Types';
     icon: 'plus';
-    description: '';
   };
   attributes: {
     JobType: Attribute.String & Attribute.Required;
-    PricePer: Attribute.Decimal & Attribute.Required;
     PriceMinimum: Attribute.Decimal & Attribute.Required;
+    PricePer: Attribute.Decimal & Attribute.Required;
   };
 }
 
@@ -524,15 +524,15 @@ export interface ListComponentsItems extends Schema.Component {
 export interface NavbarComponentsImageLink extends Schema.Component {
   collectionName: 'components_navbar_components_image_links';
   info: {
+    description: '';
     displayName: 'Image Link';
     icon: 'picture';
-    description: '';
   };
   attributes: {
     Image: Attribute.Media<'images'> & Attribute.Required;
     Link: Attribute.String & Attribute.Required;
-    Width: Attribute.Decimal;
     showInMobile: Attribute.Boolean;
+    Width: Attribute.Decimal;
   };
 }
 
@@ -545,81 +545,81 @@ export interface NavbarComponentsMobileConfig extends Schema.Component {
   attributes: {
     DrawerLink: Attribute.String;
     DrawerText: Attribute.String;
-    MobileIcon: Attribute.Media<'images'>;
     IconLink: Attribute.String;
+    MobileIcon: Attribute.Media<'images'>;
   };
 }
 
 export interface NavbarComponentsNavButton extends Schema.Component {
   collectionName: 'components_navbar_components_nav_buttons';
   info: {
+    description: '';
     displayName: 'Nav Button';
     icon: 'cast';
-    description: '';
   };
   attributes: {
-    Text: Attribute.String;
-    Link: Attribute.String & Attribute.Required & Attribute.DefaultTo<'/'>;
     Color: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
+    Link: Attribute.String & Attribute.Required & Attribute.DefaultTo<'/'>;
+    Text: Attribute.String;
   };
 }
 
 export interface NavbarComponentsNavMenu extends Schema.Component {
   collectionName: 'components_navbar_components_nav_menus';
   info: {
+    description: '';
     displayName: 'Nav Menu';
     icon: 'bulletList';
-    description: '';
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
     menuItem: Attribute.Component<'navbar-menu-components.menu-item', true>;
+    title: Attribute.String & Attribute.Required;
   };
 }
 
 export interface NavbarComponentsTextLink extends Schema.Component {
   collectionName: 'components_navbar_components_text_links';
   info: {
+    description: '';
     displayName: 'Text Link';
     icon: 'link';
-    description: '';
   };
   attributes: {
-    Title: Attribute.String & Attribute.Required;
     Link: Attribute.String & Attribute.Required;
+    Title: Attribute.String & Attribute.Required;
   };
 }
 
 export interface NavbarMenuComponentsMenuItem extends Schema.Component {
   collectionName: 'components_navbar_menu_components_menu_items';
   info: {
+    description: '';
     displayName: 'Menu Item';
     icon: 'plus';
-    description: '';
   };
   attributes: {
-    text: Attribute.String & Attribute.Required;
-    link: Attribute.String & Attribute.Required & Attribute.DefaultTo<'/'>;
     icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Attribute.String & Attribute.Required & Attribute.DefaultTo<'/'>;
+    text: Attribute.String & Attribute.Required;
   };
 }
 
 export interface SiteSettingsComponentsColorPalette extends Schema.Component {
   collectionName: 'components_site_settings_components_color_palettes';
   info: {
+    description: '';
     displayName: 'Color Palette';
     icon: 'chartBubble';
-    description: '';
   };
   attributes: {
+    info: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
     primary: Attribute.String &
       Attribute.Required &
       Attribute.CustomField<'plugin::color-picker.color'>;
     secondary: Attribute.String &
       Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    info: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
     success: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
