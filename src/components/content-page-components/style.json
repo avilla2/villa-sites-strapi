@@ -40,6 +40,12 @@
       "default": 12,
       "max": 12,
       "min": 3
+    },
+    "paddingTop": {
+      "type": "integer"
+    },
+    "paddingBottom": {
+      "type": "integer"
     }
   }
 }

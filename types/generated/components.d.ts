@@ -193,7 +193,7 @@ export interface ContentPageComponentsImage extends Schema.Component {
     captionLocation: Attribute.Enumeration<['top', 'left', 'bottom', 'right']> &
       Attribute.DefaultTo<'bottom'>;
     height: Attribute.Integer;
-    imageStyle: Attribute.Enumeration<['Regular', 'Parallax']>;
+    imageStyle: Attribute.Enumeration<['Regular', 'Parallax', 'Paper']>;
     Style: Attribute.Component<'content-page-components.style'>;
     width: Attribute.Integer & Attribute.DefaultTo<80>;
   };
@@ -262,6 +262,8 @@ export interface ContentPageComponentsStyle extends Schema.Component {
       Attribute.DefaultTo<'None'>;
     BackgroundColor: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
+    paddingBottom: Attribute.Integer;
+    paddingTop: Attribute.Integer;
     size: Attribute.Integer &
       Attribute.SetMinMax<
         {
