@@ -447,7 +447,7 @@ export interface ApiContentPageContentPage extends Schema.CollectionType {
     singularName: 'content-page';
   };
   options: {
-    draftAndPublish: false;
+    draftAndPublish: true;
   };
   pluginOptions: {
     i18n: {
@@ -507,6 +507,7 @@ export interface ApiContentPageContentPage extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    publishedAt: Attribute.DateTime;
     Title: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
