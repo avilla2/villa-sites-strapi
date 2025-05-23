@@ -10,16 +10,30 @@
   "options": {
     "draftAndPublish": false
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "Palette": {
       "type": "component",
       "repeatable": false,
-      "component": "site-settings-components.color-palette"
+      "component": "site-settings-components.color-palette",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "Name": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "DesktopBreakpoint": {
       "type": "enumeration",
@@ -30,14 +44,29 @@
         "lg",
         "xl"
       ],
-      "default": "md"
+      "default": "md",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "EnableLocalization": {
       "type": "boolean",
-      "default": false
+      "default": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "SiteTitle": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "website": {
       "type": "relation",

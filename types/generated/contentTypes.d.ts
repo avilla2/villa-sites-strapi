@@ -447,7 +447,7 @@ export interface ApiContentPageContentPage extends Schema.CollectionType {
     singularName: 'content-page';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   pluginOptions: {
     i18n: {
@@ -507,7 +507,6 @@ export interface ApiContentPageContentPage extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    publishedAt: Attribute.DateTime;
     Title: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -820,6 +819,11 @@ export interface ApiWebsiteSettingWebsiteSetting extends Schema.CollectionType {
   options: {
     draftAndPublish: false;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     createdAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -829,11 +833,44 @@ export interface ApiWebsiteSettingWebsiteSetting extends Schema.CollectionType {
     > &
       Attribute.Private;
     DesktopBreakpoint: Attribute.Enumeration<['xs', 'sm', 'md', 'lg', 'xl']> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Attribute.DefaultTo<'md'>;
-    EnableLocalization: Attribute.Boolean & Attribute.DefaultTo<false>;
-    Name: Attribute.String & Attribute.Required;
-    Palette: Attribute.Component<'site-settings-components.color-palette'>;
-    SiteTitle: Attribute.String;
+    EnableLocalization: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    locale: Attribute.String;
+    localizations: Attribute.Relation<
+      'api::website-setting.website-setting',
+      'oneToMany',
+      'api::website-setting.website-setting'
+    >;
+    Name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Palette: Attribute.Component<'site-settings-components.color-palette'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    SiteTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::website-setting.website-setting',
