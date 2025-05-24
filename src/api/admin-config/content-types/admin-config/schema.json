@@ -10,22 +10,14 @@
   "options": {
     "draftAndPublish": false
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "role_map": {
       "displayName": "Role Mappings",
       "type": "component",
       "repeatable": true,
       "component": "admin.role-mappings",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     }
   }
 }
