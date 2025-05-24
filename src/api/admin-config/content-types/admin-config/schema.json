@@ -4,19 +4,28 @@
   "info": {
     "singularName": "admin-config",
     "pluralName": "admin-configs",
-    "displayName": "admin_config",
+    "displayName": "Admin Config",
     "description": ""
   },
   "options": {
     "draftAndPublish": false
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "role_map": {
       "displayName": "Role Mappings",
       "type": "component",
       "repeatable": true,
-      "component": "admin.role-mappings"
+      "component": "admin.role-mappings",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

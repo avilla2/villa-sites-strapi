@@ -366,12 +366,17 @@ export interface ApiAdminConfigAdminConfig extends Schema.SingleType {
   collectionName: 'admin_configs';
   info: {
     description: '';
-    displayName: 'admin_config';
+    displayName: 'Admin Config';
     pluralName: 'admin-configs';
     singularName: 'admin-config';
   };
   options: {
     draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
   };
   attributes: {
     createdAt: Attribute.DateTime;
@@ -381,7 +386,18 @@ export interface ApiAdminConfigAdminConfig extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
-    role_map: Attribute.Component<'admin.role-mappings', true>;
+    locale: Attribute.String;
+    localizations: Attribute.Relation<
+      'api::admin-config.admin-config',
+      'oneToMany',
+      'api::admin-config.admin-config'
+    >;
+    role_map: Attribute.Component<'admin.role-mappings', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::admin-config.admin-config',
