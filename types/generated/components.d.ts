@@ -128,6 +128,7 @@ export interface ContentPageComponentsCardGroup extends Schema.Component {
   };
   attributes: {
     Cards: Attribute.Component<'card-group-components.cards', true>;
+    fullWidth: Attribute.Boolean & Attribute.DefaultTo<false>;
     Style: Attribute.Component<'content-page-components.style'>;
     Title: Attribute.String;
   };
@@ -308,6 +309,18 @@ export interface FaqComponentsFaqEntry extends Schema.Component {
   attributes: {
     Body: Attribute.RichText;
     Title: Attribute.String;
+  };
+}
+
+export interface FooterComponentsFooterLinks extends Schema.Component {
+  collectionName: 'components_footer_components_footer_links';
+  info: {
+    displayName: 'Footer Links';
+    icon: 'link';
+  };
+  attributes: {
+    link: Attribute.String;
+    text: Attribute.String;
   };
 }
 
@@ -651,6 +664,7 @@ declare module '@strapi/types' {
       'content-page-components.style': ContentPageComponentsStyle;
       'content-page-components.video': ContentPageComponentsVideo;
       'faq-components.faq-entry': FaqComponentsFaqEntry;
+      'footer-components.footer-links': FooterComponentsFooterLinks;
       'footer-components.icons': FooterComponentsIcons;
       'footer-components.image': FooterComponentsImage;
       'footer-components.text': FooterComponentsText;

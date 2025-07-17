@@ -607,6 +607,12 @@ export interface ApiWebsiteFooterWebsiteFooter extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    links: Attribute.Component<'footer-components.footer-links', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Attribute.String;
     localizations: Attribute.Relation<
       'api::website-footer.website-footer',

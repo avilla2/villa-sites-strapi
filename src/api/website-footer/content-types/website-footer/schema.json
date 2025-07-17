@@ -53,6 +53,17 @@
       "relation": "oneToOne",
       "target": "api::website.website",
       "mappedBy": "footer"
+    },
+    "links": {
+      "displayName": "Footer Links",
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "footer-components.footer-links"
     }
   }
 }
