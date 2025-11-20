@@ -19,18 +19,17 @@
     },
     "Style": {
       "type": "component",
-      "repeatable": false,
-      "component": "content-page-components.style"
+      "component": "content-page-components.style",
+      "repeatable": false
     },
     "sendFrom": {
       "type": "email",
       "default": "notifications@villawebsolutions.com"
     },
-    "fields": {
-      "displayName": "Form Fields",
+    "formFields": {
       "type": "component",
-      "repeatable": true,
       "component": "form-components.form-fields",
+      "repeatable": true,
       "required": true
     }
   }

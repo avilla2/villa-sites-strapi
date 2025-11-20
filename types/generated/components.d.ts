@@ -1,6 +1,6 @@
-import type { Attribute, Schema } from '@strapi/strapi';
+import type { Schema, Struct } from '@strapi/strapi';
 
-export interface AdminRoleMappings extends Schema.Component {
+export interface AdminRoleMappings extends Struct.ComponentSchema {
   collectionName: 'components_admin_role_mappings';
   info: {
     description: '';
@@ -8,16 +8,12 @@ export interface AdminRoleMappings extends Schema.Component {
     icon: 'puzzle';
   };
   attributes: {
-    role: Attribute.Relation<'admin.role-mappings', 'oneToOne', 'admin::role'>;
-    website: Attribute.Relation<
-      'admin.role-mappings',
-      'oneToOne',
-      'api::website.website'
-    >;
+    role: Schema.Attribute.Relation<'oneToOne', 'admin::role'>;
+    website: Schema.Attribute.Relation<'oneToOne', 'api::website.website'>;
   };
 }
 
-export interface AssetComponentsImage extends Schema.Component {
+export interface AssetComponentsImage extends Struct.ComponentSchema {
   collectionName: 'components_asset_components_images';
   info: {
     description: '';
@@ -25,15 +21,15 @@ export interface AssetComponentsImage extends Schema.Component {
     icon: 'picture';
   };
   attributes: {
-    File: Attribute.Media<'images'> & Attribute.Required;
-    Height: Attribute.Integer;
-    Style: Attribute.Enumeration<['Regular', 'Parallax']> &
-      Attribute.DefaultTo<'Regular'>;
-    Width: Attribute.Integer & Attribute.DefaultTo<80>;
+    File: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Height: Schema.Attribute.Integer;
+    Style: Schema.Attribute.Enumeration<['Regular', 'Parallax']> &
+      Schema.Attribute.DefaultTo<'Regular'>;
+    Width: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<80>;
   };
 }
 
-export interface AssetComponentsPdf extends Schema.Component {
+export interface AssetComponentsPdf extends Struct.ComponentSchema {
   collectionName: 'components_asset_components_pdfs';
   info: {
     description: '';
@@ -41,11 +37,11 @@ export interface AssetComponentsPdf extends Schema.Component {
     icon: 'filePdf';
   };
   attributes: {
-    File: Attribute.Media<'files'> & Attribute.Required;
+    File: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
   };
 }
 
-export interface AssetComponentsVideo extends Schema.Component {
+export interface AssetComponentsVideo extends Struct.ComponentSchema {
   collectionName: 'components_asset_components_videos';
   info: {
     description: '';
@@ -53,16 +49,16 @@ export interface AssetComponentsVideo extends Schema.Component {
     icon: 'play';
   };
   attributes: {
-    Autoplay: Attribute.Boolean & Attribute.DefaultTo<false>;
-    Controls: Attribute.Boolean & Attribute.DefaultTo<true>;
-    File: Attribute.Media<'videos'> & Attribute.Required;
-    Loop: Attribute.Boolean & Attribute.DefaultTo<false>;
-    Muted: Attribute.Boolean & Attribute.DefaultTo<false>;
-    Width: Attribute.Integer & Attribute.DefaultTo<80>;
+    Autoplay: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    Controls: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    File: Schema.Attribute.Media<'videos'> & Schema.Attribute.Required;
+    Loop: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    Muted: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    Width: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<80>;
   };
 }
 
-export interface ButtonComponentsButtonEntry extends Schema.Component {
+export interface ButtonComponentsButtonEntry extends Struct.ComponentSchema {
   collectionName: 'components_button_components_button_entries';
   info: {
     description: '';
@@ -70,37 +66,37 @@ export interface ButtonComponentsButtonEntry extends Schema.Component {
     icon: 'bold';
   };
   attributes: {
-    ButtonColor: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    Link: Attribute.String;
-    Text: Attribute.String;
+    ButtonColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    Link: Schema.Attribute.String;
+    Text: Schema.Attribute.String;
   };
 }
 
-export interface CardGroupComponentsCards extends Schema.Component {
+export interface CardGroupComponentsCards extends Struct.ComponentSchema {
   collectionName: 'components_home_page_components_cards';
   info: {
     description: '';
     displayName: 'Cards';
   };
   attributes: {
-    ButtonColor: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    ButtonText: Attribute.String;
-    CardColor: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    CardStyle: Attribute.Enumeration<['standard', 'overlay']> &
-      Attribute.DefaultTo<'standard'>;
-    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Link: Attribute.String;
-    Text: Attribute.Blocks;
-    TextColor: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    Title: Attribute.String;
+    ButtonColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    ButtonText: Schema.Attribute.String;
+    CardColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    CardStyle: Schema.Attribute.Enumeration<['standard', 'overlay']> &
+      Schema.Attribute.DefaultTo<'standard'>;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Link: Schema.Attribute.String;
+    Text: Schema.Attribute.Blocks;
+    TextColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    Title: Schema.Attribute.String;
   };
 }
 
-export interface ContentPageComponentsButtons extends Schema.Component {
+export interface ContentPageComponentsButtons extends Struct.ComponentSchema {
   collectionName: 'components_content_page_components_buttons';
   info: {
     description: '';
@@ -108,18 +104,20 @@ export interface ContentPageComponentsButtons extends Schema.Component {
     icon: 'chartBubble';
   };
   attributes: {
-    ButtonArrangement: Attribute.Enumeration<
+    ButtonArrangement: Schema.Attribute.Enumeration<
       ['together', 'space between', 'spaced evenly']
     > &
-      Attribute.DefaultTo<'together'>;
-    ButtonStyle: Attribute.Enumeration<['contained', 'outlined', 'text']> &
-      Attribute.DefaultTo<'outlined'>;
-    Entry: Attribute.Component<'button-components.button-entry', true>;
-    Style: Attribute.Component<'content-page-components.style'>;
+      Schema.Attribute.DefaultTo<'together'>;
+    ButtonStyle: Schema.Attribute.Enumeration<
+      ['contained', 'outlined', 'text']
+    > &
+      Schema.Attribute.DefaultTo<'outlined'>;
+    Entry: Schema.Attribute.Component<'button-components.button-entry', true>;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
   };
 }
 
-export interface ContentPageComponentsCardGroup extends Schema.Component {
+export interface ContentPageComponentsCardGroup extends Struct.ComponentSchema {
   collectionName: 'components_content_page_components_card_groups';
   info: {
     description: '';
@@ -127,14 +125,14 @@ export interface ContentPageComponentsCardGroup extends Schema.Component {
     icon: 'collapse';
   };
   attributes: {
-    Cards: Attribute.Component<'card-group-components.cards', true>;
-    fullWidth: Attribute.Boolean & Attribute.DefaultTo<false>;
-    Style: Attribute.Component<'content-page-components.style'>;
-    Title: Attribute.String;
+    Cards: Schema.Attribute.Component<'card-group-components.cards', true>;
+    fullWidth: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
+    Title: Schema.Attribute.String;
   };
 }
 
-export interface ContentPageComponentsFaq extends Schema.Component {
+export interface ContentPageComponentsFaq extends Struct.ComponentSchema {
   collectionName: 'components_content_page_components_faqs';
   info: {
     description: '';
@@ -142,13 +140,13 @@ export interface ContentPageComponentsFaq extends Schema.Component {
     icon: 'question';
   };
   attributes: {
-    Entry: Attribute.Component<'faq-components.faq-entry', true>;
-    Style: Attribute.Component<'content-page-components.style'>;
-    Title: Attribute.String;
+    Entry: Schema.Attribute.Component<'faq-components.faq-entry', true>;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
+    Title: Schema.Attribute.String;
   };
 }
 
-export interface ContentPageComponentsForm extends Schema.Component {
+export interface ContentPageComponentsForm extends Struct.ComponentSchema {
   collectionName: 'components_content_page_components_forms';
   info: {
     description: '';
@@ -156,18 +154,21 @@ export interface ContentPageComponentsForm extends Schema.Component {
     icon: 'envelop';
   };
   attributes: {
-    bodyTitle: Attribute.String;
-    fields: Attribute.Component<'form-components.form-fields', true> &
-      Attribute.Required;
-    sendFrom: Attribute.Email &
-      Attribute.DefaultTo<'notifications@villawebsolutions.com'>;
-    sendTo: Attribute.Email & Attribute.Required;
-    Style: Attribute.Component<'content-page-components.style'>;
-    Title: Attribute.String;
+    bodyTitle: Schema.Attribute.String;
+    formFields: Schema.Attribute.Component<
+      'form-components.form-fields',
+      true
+    > &
+      Schema.Attribute.Required;
+    sendFrom: Schema.Attribute.Email &
+      Schema.Attribute.DefaultTo<'notifications@villawebsolutions.com'>;
+    sendTo: Schema.Attribute.Email & Schema.Attribute.Required;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
+    Title: Schema.Attribute.String;
   };
 }
 
-export interface ContentPageComponentsGrid extends Schema.Component {
+export interface ContentPageComponentsGrid extends Struct.ComponentSchema {
   collectionName: 'components_content_page_components_grids';
   info: {
     description: '';
@@ -175,13 +176,13 @@ export interface ContentPageComponentsGrid extends Schema.Component {
     icon: 'layout';
   };
   attributes: {
-    Entry: Attribute.Component<'grid-components.grid-entry', true>;
-    Style: Attribute.Component<'content-page-components.style'>;
-    Title: Attribute.String;
+    Entry: Schema.Attribute.Component<'grid-components.grid-entry', true>;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
+    Title: Schema.Attribute.String;
   };
 }
 
-export interface ContentPageComponentsImage extends Schema.Component {
+export interface ContentPageComponentsImage extends Struct.ComponentSchema {
   collectionName: 'components_content_page_components_images';
   info: {
     description: '';
@@ -189,18 +190,21 @@ export interface ContentPageComponentsImage extends Schema.Component {
     icon: 'landscape';
   };
   attributes: {
-    asset: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    caption: Attribute.RichText;
-    captionLocation: Attribute.Enumeration<['top', 'left', 'bottom', 'right']> &
-      Attribute.DefaultTo<'bottom'>;
-    height: Attribute.Integer;
-    imageStyle: Attribute.Enumeration<['Regular', 'Parallax', 'Paper']>;
-    Style: Attribute.Component<'content-page-components.style'>;
-    width: Attribute.Integer & Attribute.DefaultTo<80>;
+    asset: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    caption: Schema.Attribute.RichText;
+    captionLocation: Schema.Attribute.Enumeration<
+      ['top', 'left', 'bottom', 'right']
+    > &
+      Schema.Attribute.DefaultTo<'bottom'>;
+    height: Schema.Attribute.Integer;
+    imageStyle: Schema.Attribute.Enumeration<['Regular', 'Parallax', 'Paper']>;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
+    width: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<80>;
   };
 }
 
-export interface ContentPageComponentsInstantQuote extends Schema.Component {
+export interface ContentPageComponentsInstantQuote
+  extends Struct.ComponentSchema {
   collectionName: 'components_content_page_components_instant_quotes';
   info: {
     description: '';
@@ -208,20 +212,25 @@ export interface ContentPageComponentsInstantQuote extends Schema.Component {
     icon: 'information';
   };
   attributes: {
-    ButtonColor: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    ButtonStyle: Attribute.Enumeration<['contained', 'outlined', 'text']> &
-      Attribute.DefaultTo<'outlined'>;
-    ButtonText: Attribute.String;
-    Entry: Attribute.Component<'instant-quote-components.job-types', true>;
-    SendFrom: Attribute.Email;
-    SendTo: Attribute.Email;
-    Style: Attribute.Component<'content-page-components.style'>;
-    Title: Attribute.String;
+    ButtonColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    ButtonStyle: Schema.Attribute.Enumeration<
+      ['contained', 'outlined', 'text']
+    > &
+      Schema.Attribute.DefaultTo<'outlined'>;
+    ButtonText: Schema.Attribute.String;
+    Entry: Schema.Attribute.Component<
+      'instant-quote-components.job-types',
+      true
+    >;
+    SendFrom: Schema.Attribute.Email;
+    SendTo: Schema.Attribute.Email;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
+    Title: Schema.Attribute.String;
   };
 }
 
-export interface ContentPageComponentsList extends Schema.Component {
+export interface ContentPageComponentsList extends Struct.ComponentSchema {
   collectionName: 'components_content_page_components_lists';
   info: {
     description: '';
@@ -229,15 +238,15 @@ export interface ContentPageComponentsList extends Schema.Component {
     icon: 'bulletList';
   };
   attributes: {
-    Caption: Attribute.Blocks;
-    Icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Items: Attribute.Component<'list-components.items', true>;
-    Style: Attribute.Component<'content-page-components.style'>;
-    Title: Attribute.String;
+    Caption: Schema.Attribute.Blocks;
+    Icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Items: Schema.Attribute.Component<'list-components.items', true>;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
+    Title: Schema.Attribute.String;
   };
 }
 
-export interface ContentPageComponentsParagraph extends Schema.Component {
+export interface ContentPageComponentsParagraph extends Struct.ComponentSchema {
   collectionName: 'components_content_page_components_paragraphs';
   info: {
     description: '';
@@ -245,13 +254,13 @@ export interface ContentPageComponentsParagraph extends Schema.Component {
     icon: 'filter';
   };
   attributes: {
-    Body: Attribute.RichText;
-    Style: Attribute.Component<'content-page-components.style'>;
-    Title: Attribute.String;
+    Body: Schema.Attribute.RichText;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
+    Title: Schema.Attribute.String;
   };
 }
 
-export interface ContentPageComponentsStyle extends Schema.Component {
+export interface ContentPageComponentsStyle extends Struct.ComponentSchema {
   collectionName: 'components_content_page_components_styles';
   info: {
     description: '';
@@ -259,29 +268,29 @@ export interface ContentPageComponentsStyle extends Schema.Component {
     icon: 'chartBubble';
   };
   attributes: {
-    Animation: Attribute.Enumeration<['None', 'Fade', 'Slide']> &
-      Attribute.DefaultTo<'None'>;
-    BackgroundColor: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    paddingBottom: Attribute.Integer;
-    paddingTop: Attribute.Integer;
-    size: Attribute.Integer &
-      Attribute.SetMinMax<
+    Animation: Schema.Attribute.Enumeration<['None', 'Fade', 'Slide']> &
+      Schema.Attribute.DefaultTo<'None'>;
+    BackgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    paddingBottom: Schema.Attribute.Integer;
+    paddingTop: Schema.Attribute.Integer;
+    size: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
         {
           max: 12;
           min: 3;
         },
         number
       > &
-      Attribute.DefaultTo<12>;
-    textAlign: Attribute.Enumeration<['left', 'center', 'right']> &
-      Attribute.DefaultTo<'center'>;
-    TextColor: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
+      Schema.Attribute.DefaultTo<12>;
+    textAlign: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
+      Schema.Attribute.DefaultTo<'center'>;
+    TextColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
   };
 }
 
-export interface ContentPageComponentsVideo extends Schema.Component {
+export interface ContentPageComponentsVideo extends Struct.ComponentSchema {
   collectionName: 'components_content_page_components_videos';
   info: {
     description: '';
@@ -289,42 +298,42 @@ export interface ContentPageComponentsVideo extends Schema.Component {
     icon: 'slideshow';
   };
   attributes: {
-    asset: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    autoplay: Attribute.Boolean;
-    caption: Attribute.RichText;
-    controls: Attribute.Boolean;
-    loop: Attribute.Boolean;
-    muted: Attribute.Boolean;
-    Style: Attribute.Component<'content-page-components.style'>;
-    width: Attribute.Integer & Attribute.DefaultTo<80>;
+    asset: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    autoplay: Schema.Attribute.Boolean;
+    caption: Schema.Attribute.RichText;
+    controls: Schema.Attribute.Boolean;
+    loop: Schema.Attribute.Boolean;
+    muted: Schema.Attribute.Boolean;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
+    width: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<80>;
   };
 }
 
-export interface FaqComponentsFaqEntry extends Schema.Component {
+export interface FaqComponentsFaqEntry extends Struct.ComponentSchema {
   collectionName: 'components_faq_components_faq_entries';
   info: {
     displayName: 'FAQ Entry';
     icon: 'feather';
   };
   attributes: {
-    Body: Attribute.RichText;
-    Title: Attribute.String;
+    Body: Schema.Attribute.RichText;
+    Title: Schema.Attribute.String;
   };
 }
 
-export interface FooterComponentsFooterLinks extends Schema.Component {
+export interface FooterComponentsFooterLinks extends Struct.ComponentSchema {
   collectionName: 'components_footer_components_footer_links';
   info: {
     displayName: 'Footer Links';
     icon: 'link';
   };
   attributes: {
-    link: Attribute.String;
-    text: Attribute.String;
+    link: Schema.Attribute.String;
+    text: Schema.Attribute.String;
   };
 }
 
-export interface FooterComponentsIcons extends Schema.Component {
+export interface FooterComponentsIcons extends Struct.ComponentSchema {
   collectionName: 'components_footer_components_icons';
   info: {
     description: '';
@@ -332,36 +341,36 @@ export interface FooterComponentsIcons extends Schema.Component {
     icon: 'grid';
   };
   attributes: {
-    Entry: Attribute.Component<'footer-icons-components.entry', true>;
-    Space: Attribute.Integer;
+    Entry: Schema.Attribute.Component<'footer-icons-components.entry', true>;
+    Space: Schema.Attribute.Integer;
   };
 }
 
-export interface FooterComponentsImage extends Schema.Component {
+export interface FooterComponentsImage extends Struct.ComponentSchema {
   collectionName: 'components_footer_components_images';
   info: {
     displayName: 'Image';
     icon: 'picture';
   };
   attributes: {
-    Image: Attribute.Media<'images'>;
-    Space: Attribute.Integer;
+    Image: Schema.Attribute.Media<'images'>;
+    Space: Schema.Attribute.Integer;
   };
 }
 
-export interface FooterComponentsText extends Schema.Component {
+export interface FooterComponentsText extends Struct.ComponentSchema {
   collectionName: 'components_footer_components_texts';
   info: {
     displayName: 'Text';
     icon: 'layer';
   };
   attributes: {
-    Space: Attribute.Integer;
-    Text: Attribute.RichText;
+    Space: Schema.Attribute.Integer;
+    Text: Schema.Attribute.RichText;
   };
 }
 
-export interface FooterIconsComponentsEntry extends Schema.Component {
+export interface FooterIconsComponentsEntry extends Struct.ComponentSchema {
   collectionName: 'components_footer_icons_components_entries';
   info: {
     description: '';
@@ -369,30 +378,30 @@ export interface FooterIconsComponentsEntry extends Schema.Component {
     icon: 'layer';
   };
   attributes: {
-    Color: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    Icon: Attribute.Enumeration<
+    Color: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    Icon: Schema.Attribute.Enumeration<
       ['Facebook', 'Instagram', 'X', 'Youtube', 'TikTok']
     >;
-    Link: Attribute.String;
+    Link: Schema.Attribute.String;
   };
 }
 
-export interface FormComponentsFormData extends Schema.Component {
+export interface FormComponentsFormData extends Struct.ComponentSchema {
   collectionName: 'components_form_components_form_data';
   info: {
     displayName: 'FormData';
     icon: 'archive';
   };
   attributes: {
-    BodyTitle: Attribute.String;
-    SendFrom: Attribute.String &
-      Attribute.DefaultTo<'notifications@villawebsolutions.com'>;
-    SendTo: Attribute.String;
+    BodyTitle: Schema.Attribute.String;
+    SendFrom: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'notifications@villawebsolutions.com'>;
+    SendTo: Schema.Attribute.String;
   };
 }
 
-export interface FormComponentsFormFields extends Schema.Component {
+export interface FormComponentsFormFields extends Struct.ComponentSchema {
   collectionName: 'components_form_components_form_fields';
   info: {
     description: '';
@@ -400,28 +409,29 @@ export interface FormComponentsFormFields extends Schema.Component {
     icon: 'bulletList';
   };
   attributes: {
-    fullWidth: Attribute.Boolean;
-    includeInSubjectLine: Attribute.Boolean;
-    label: Attribute.String & Attribute.Required;
-    name: Attribute.String & Attribute.Required;
-    type: Attribute.Enumeration<['any', 'phone']> & Attribute.DefaultTo<'any'>;
-    validation: Attribute.String;
+    fullWidth: Schema.Attribute.Boolean;
+    includeInSubjectLine: Schema.Attribute.Boolean;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['any', 'phone']> &
+      Schema.Attribute.DefaultTo<'any'>;
+    validation: Schema.Attribute.String;
   };
 }
 
-export interface GridComponentsGridEntry extends Schema.Component {
+export interface GridComponentsGridEntry extends Struct.ComponentSchema {
   collectionName: 'components_grid_components_grid_entries';
   info: {
     displayName: 'Grid Entry';
     icon: 'apps';
   };
   attributes: {
-    Caption: Attribute.RichText;
-    Picture: Attribute.Media<'images'>;
+    Caption: Schema.Attribute.RichText;
+    Picture: Schema.Attribute.Media<'images'>;
   };
 }
 
-export interface HomePageComponentsGallery extends Schema.Component {
+export interface HomePageComponentsGallery extends Struct.ComponentSchema {
   collectionName: 'components_home_page_components_galleries';
   info: {
     description: '';
@@ -429,13 +439,13 @@ export interface HomePageComponentsGallery extends Schema.Component {
     icon: 'landscape';
   };
   attributes: {
-    Pictures: Attribute.Media<'images', true>;
-    Style: Attribute.Component<'content-page-components.style'>;
-    Title: Attribute.String;
+    Pictures: Schema.Attribute.Media<'images', true>;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
+    Title: Schema.Attribute.String;
   };
 }
 
-export interface HomePageComponentsIntro extends Schema.Component {
+export interface HomePageComponentsIntro extends Struct.ComponentSchema {
   collectionName: 'components_home_page_components_intros';
   info: {
     description: '';
@@ -443,21 +453,25 @@ export interface HomePageComponentsIntro extends Schema.Component {
     icon: 'picture';
   };
   attributes: {
-    Buttons: Attribute.Component<'button-components.button-entry', true>;
-    File: Attribute.Media<'videos' | 'images', true> & Attribute.Required;
-    FormData: Attribute.Component<'form-components.form-data'>;
-    FormFields: Attribute.Component<'form-components.form-fields', true>;
-    IntroText: Attribute.RichText;
-    MobileFile: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    Style: Attribute.Component<'content-page-components.style'>;
-    TextPosition: Attribute.Enumeration<
+    Buttons: Schema.Attribute.Component<'button-components.button-entry', true>;
+    File: Schema.Attribute.Media<'videos' | 'images', true> &
+      Schema.Attribute.Required;
+    FormData: Schema.Attribute.Component<'form-components.form-data', false>;
+    FormFields: Schema.Attribute.Component<'form-components.form-fields', true>;
+    IntroText: Schema.Attribute.RichText;
+    MobileFile: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
+    TextPosition: Schema.Attribute.Enumeration<
       ['Bottom Left', 'Bottom Right', 'Centered']
     > &
-      Attribute.DefaultTo<'Bottom Left'>;
+      Schema.Attribute.DefaultTo<'Bottom Left'>;
   };
 }
 
-export interface HomePageComponentsMedia extends Schema.Component {
+export interface HomePageComponentsMedia extends Struct.ComponentSchema {
   collectionName: 'components_home_page_components_media';
   info: {
     description: '';
@@ -465,17 +479,13 @@ export interface HomePageComponentsMedia extends Schema.Component {
     icon: 'archive';
   };
   attributes: {
-    asset: Attribute.Relation<
-      'home-page-components.media',
-      'oneToOne',
-      'api::asset.asset'
-    >;
-    Style: Attribute.Component<'content-page-components.style'>;
-    Title: Attribute.String;
+    asset: Schema.Attribute.Relation<'oneToOne', 'api::asset.asset'>;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
+    Title: Schema.Attribute.String;
   };
 }
 
-export interface HomePageComponentsRichText extends Schema.Component {
+export interface HomePageComponentsRichText extends Struct.ComponentSchema {
   collectionName: 'components_home_page_components_rich_texts';
   info: {
     description: '';
@@ -483,13 +493,13 @@ export interface HomePageComponentsRichText extends Schema.Component {
     icon: 'quote';
   };
   attributes: {
-    RichText: Attribute.Blocks;
-    Style: Attribute.Component<'content-page-components.style'>;
-    Title: Attribute.String;
+    RichText: Schema.Attribute.Blocks;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
+    Title: Schema.Attribute.String;
   };
 }
 
-export interface HomePageComponentsSlideshow extends Schema.Component {
+export interface HomePageComponentsSlideshow extends Struct.ComponentSchema {
   collectionName: 'components_home_page_components_slideshows';
   info: {
     description: '';
@@ -497,21 +507,21 @@ export interface HomePageComponentsSlideshow extends Schema.Component {
     icon: 'landscape';
   };
   attributes: {
-    slidesDesktop: Attribute.Media<
+    slidesDesktop: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
-    slidesMobile: Attribute.Media<
+    slidesMobile: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
-    Style: Attribute.Component<'content-page-components.style'>;
-    Title: Attribute.String;
-    uuid: Attribute.String & Attribute.Required;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
+    Title: Schema.Attribute.String;
+    uuid: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface InstantQuoteComponentsJobTypes extends Schema.Component {
+export interface InstantQuoteComponentsJobTypes extends Struct.ComponentSchema {
   collectionName: 'components_instant_quote_components_job_types';
   info: {
     description: '';
@@ -519,24 +529,24 @@ export interface InstantQuoteComponentsJobTypes extends Schema.Component {
     icon: 'plus';
   };
   attributes: {
-    JobType: Attribute.String & Attribute.Required;
-    PriceMinimum: Attribute.Decimal & Attribute.Required;
-    PricePer: Attribute.Decimal & Attribute.Required;
+    JobType: Schema.Attribute.String & Schema.Attribute.Required;
+    PriceMinimum: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    PricePer: Schema.Attribute.Decimal & Schema.Attribute.Required;
   };
 }
 
-export interface ListComponentsItems extends Schema.Component {
+export interface ListComponentsItems extends Struct.ComponentSchema {
   collectionName: 'components_list_components_items';
   info: {
     displayName: 'Items';
     icon: 'star';
   };
   attributes: {
-    Text: Attribute.Text;
+    Text: Schema.Attribute.Text;
   };
 }
 
-export interface NavbarComponentsImageLink extends Schema.Component {
+export interface NavbarComponentsImageLink extends Struct.ComponentSchema {
   collectionName: 'components_navbar_components_image_links';
   info: {
     description: '';
@@ -544,28 +554,28 @@ export interface NavbarComponentsImageLink extends Schema.Component {
     icon: 'picture';
   };
   attributes: {
-    Image: Attribute.Media<'images'> & Attribute.Required;
-    Link: Attribute.String & Attribute.Required;
-    showInMobile: Attribute.Boolean;
-    Width: Attribute.Decimal;
+    Image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Link: Schema.Attribute.String & Schema.Attribute.Required;
+    showInMobile: Schema.Attribute.Boolean;
+    Width: Schema.Attribute.Decimal;
   };
 }
 
-export interface NavbarComponentsMobileConfig extends Schema.Component {
+export interface NavbarComponentsMobileConfig extends Struct.ComponentSchema {
   collectionName: 'components_navbar_components_mobile_configs';
   info: {
     displayName: 'Mobile Config';
     icon: 'connector';
   };
   attributes: {
-    DrawerLink: Attribute.String;
-    DrawerText: Attribute.String;
-    IconLink: Attribute.String;
-    MobileIcon: Attribute.Media<'images'>;
+    DrawerLink: Schema.Attribute.String;
+    DrawerText: Schema.Attribute.String;
+    IconLink: Schema.Attribute.String;
+    MobileIcon: Schema.Attribute.Media<'images'>;
   };
 }
 
-export interface NavbarComponentsNavButton extends Schema.Component {
+export interface NavbarComponentsNavButton extends Struct.ComponentSchema {
   collectionName: 'components_navbar_components_nav_buttons';
   info: {
     description: '';
@@ -573,14 +583,16 @@ export interface NavbarComponentsNavButton extends Schema.Component {
     icon: 'cast';
   };
   attributes: {
-    Color: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    Link: Attribute.String & Attribute.Required & Attribute.DefaultTo<'/'>;
-    Text: Attribute.String;
+    Color: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    Link: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'/'>;
+    Text: Schema.Attribute.String;
   };
 }
 
-export interface NavbarComponentsNavMenu extends Schema.Component {
+export interface NavbarComponentsNavMenu extends Struct.ComponentSchema {
   collectionName: 'components_navbar_components_nav_menus';
   info: {
     description: '';
@@ -588,12 +600,15 @@ export interface NavbarComponentsNavMenu extends Schema.Component {
     icon: 'bulletList';
   };
   attributes: {
-    menuItem: Attribute.Component<'navbar-menu-components.menu-item', true>;
-    title: Attribute.String & Attribute.Required;
+    menuItem: Schema.Attribute.Component<
+      'navbar-menu-components.menu-item',
+      true
+    >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface NavbarComponentsTextLink extends Schema.Component {
+export interface NavbarComponentsTextLink extends Struct.ComponentSchema {
   collectionName: 'components_navbar_components_text_links';
   info: {
     description: '';
@@ -601,12 +616,12 @@ export interface NavbarComponentsTextLink extends Schema.Component {
     icon: 'link';
   };
   attributes: {
-    Link: Attribute.String & Attribute.Required;
-    Title: Attribute.String & Attribute.Required;
+    Link: Schema.Attribute.String & Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface NavbarMenuComponentsMenuItem extends Schema.Component {
+export interface NavbarMenuComponentsMenuItem extends Struct.ComponentSchema {
   collectionName: 'components_navbar_menu_components_menu_items';
   info: {
     description: '';
@@ -614,13 +629,16 @@ export interface NavbarMenuComponentsMenuItem extends Schema.Component {
     icon: 'plus';
   };
   attributes: {
-    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    link: Attribute.String & Attribute.Required & Attribute.DefaultTo<'/'>;
-    text: Attribute.String & Attribute.Required;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'/'>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface SiteSettingsComponentsColorPalette extends Schema.Component {
+export interface SiteSettingsComponentsColorPalette
+  extends Struct.ComponentSchema {
   collectionName: 'components_site_settings_components_color_palettes';
   info: {
     description: '';
@@ -628,24 +646,24 @@ export interface SiteSettingsComponentsColorPalette extends Schema.Component {
     icon: 'chartBubble';
   };
   attributes: {
-    info: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    primary: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    secondary: Attribute.String &
-      Attribute.Required &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    success: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    warning: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
+    info: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    primary: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    secondary: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    success: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    warning: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
   };
 }
 
-declare module '@strapi/types' {
-  export module Shared {
-    export interface Components {
+declare module '@strapi/strapi' {
+  export module Public {
+    export interface ComponentSchemas {
       'admin.role-mappings': AdminRoleMappings;
       'asset-components.image': AssetComponentsImage;
       'asset-components.pdf': AssetComponentsPdf;

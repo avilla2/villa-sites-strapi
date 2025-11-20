@@ -20,11 +20,11 @@
     },
     "type": {
       "type": "enumeration",
+      "default": "any",
       "enum": [
         "any",
         "phone"
-      ],
-      "default": "any"
+      ]
     },
     "includeInSubjectLine": {
       "type": "boolean"
