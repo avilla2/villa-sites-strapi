@@ -1,9 +1,27 @@
 'use strict';
 
 const getMapping = async () => {
-  const mapping = await strapi.entityService.findOne('api::admin-config.admin-config', 1, {
+  const mapping = await strapi.documents('api::admin-config.admin-config').findOne({
+    documentId: "whfkzlgixjzuaqu5ks4j7o9t",
     fields: ['id'],
-    populate: { role_map: {fields: ['id'], populate: {role: {fields: ['id', 'name']}, website: {fields: ['id', 'name'], populate: {localizations: {fields: ['id', 'name']}}}}} },
+    populate: { 
+      role_map: {
+        fields: ['id'], 
+        populate: {
+          role: {
+            fields: ['id', 'name']
+          },
+            website: {
+              fields: ['id', 'name'], 
+              populate: {
+                localizations: {
+                  fields: ['id', 'name']
+                }
+              }
+            }
+          }
+        } 
+      }
   })
   const simplifiedMapping = {}
   // @ts-ignore
