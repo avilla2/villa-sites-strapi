@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {
     "i18n": {
@@ -18,26 +18,31 @@
   "attributes": {
     "Name": {
       "type": "string",
-      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
+      "required": true,
       "unique": true
     },
     "Link": {
       "type": "string",
-      "unique": false,
-      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true,
+      "unique": false
     },
     "Content": {
       "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "components": [
         "content-page-components.paragraph",
         "content-page-components.faq",
@@ -54,20 +59,15 @@
         "content-page-components.list",
         "home-page-components.slideshow",
         "home-page-components.rich-text"
-      ],
+      ]
+    },
+    "Title": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
-    },
-    "Title": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
     },
     "website": {
       "type": "relation",
