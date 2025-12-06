@@ -510,7 +510,7 @@ export interface ApiContentPageContentPage extends Struct.CollectionTypeSchema {
     singularName: 'content-page';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   pluginOptions: {
     i18n: {
