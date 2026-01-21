@@ -58,7 +58,8 @@
         "content-page-components.card-group",
         "content-page-components.list",
         "home-page-components.slideshow",
-        "home-page-components.rich-text"
+        "home-page-components.rich-text",
+        "home-page-components.cta"
       ]
     },
     "Title": {
