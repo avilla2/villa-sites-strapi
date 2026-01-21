@@ -535,6 +535,7 @@ export interface ApiContentPageContentPage extends Struct.CollectionTypeSchema {
         'content-page-components.list',
         'home-page-components.slideshow',
         'home-page-components.rich-text',
+        'home-page-components.cta',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -680,6 +681,7 @@ export interface ApiWebsiteHomepageWebsiteHomepage
         'content-page-components.list',
         'home-page-components.slideshow',
         'home-page-components.rich-text',
+        'home-page-components.cta',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{

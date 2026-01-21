@@ -431,6 +431,30 @@ export interface GridComponentsGridEntry extends Struct.ComponentSchema {
   };
 }
 
+export interface HomePageComponentsCta extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_components_ctas';
+  info: {
+    displayName: 'CTA';
+    icon: 'exit';
+  };
+  attributes: {
+    buttons: Schema.Attribute.Component<'button-components.button-entry', true>;
+    content: Schema.Attribute.Blocks;
+    justify: Schema.Attribute.Enumeration<
+      ['center', 'space-between', 'start']
+    > &
+      Schema.Attribute.DefaultTo<'space-between'>;
+    media: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    reversed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    Style: Schema.Attribute.Component<'content-page-components.style', false>;
+    Title: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<
+      ['standard', 'bordered', 'card', 'rounded']
+    > &
+      Schema.Attribute.DefaultTo<'standard'>;
+  };
+}
+
 export interface HomePageComponentsGallery extends Struct.ComponentSchema {
   collectionName: 'components_home_page_components_galleries';
   info: {
@@ -690,6 +714,7 @@ declare module '@strapi/strapi' {
       'form-components.form-data': FormComponentsFormData;
       'form-components.form-fields': FormComponentsFormFields;
       'grid-components.grid-entry': GridComponentsGridEntry;
+      'home-page-components.cta': HomePageComponentsCta;
       'home-page-components.gallery': HomePageComponentsGallery;
       'home-page-components.intro': HomePageComponentsIntro;
       'home-page-components.media': HomePageComponentsMedia;

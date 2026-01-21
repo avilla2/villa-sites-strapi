@@ -1,0 +1,59 @@
+{
+  "collectionName": "components_home_page_components_ctas",
+  "info": {
+    "displayName": "CTA",
+    "icon": "exit"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "buttons": {
+      "type": "component",
+      "component": "button-components.button-entry",
+      "repeatable": true
+    },
+    "Style": {
+      "type": "component",
+      "component": "content-page-components.style",
+      "repeatable": false
+    },
+    "justify": {
+      "type": "enumeration",
+      "default": "space-between",
+      "enum": [
+        "center",
+        "space-between",
+        "start"
+      ]
+    },
+    "variant": {
+      "type": "enumeration",
+      "default": "standard",
+      "enum": [
+        "standard",
+        "bordered",
+        "card",
+        "rounded"
+      ]
+    },
+    "reversed": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}

@@ -18,15 +18,20 @@
   "attributes": {
     "PageName": {
       "type": "string",
-      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
     "Content": {
       "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "components": [
         "home-page-components.gallery",
         "home-page-components.intro",
@@ -42,13 +47,9 @@
         "content-page-components.video",
         "content-page-components.list",
         "home-page-components.slideshow",
-        "home-page-components.rich-text"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+        "home-page-components.rich-text",
+        "home-page-components.cta"
+      ]
     },
     "website": {
       "type": "relation",
@@ -57,14 +58,14 @@
       "mappedBy": "homepage"
     },
     "Title": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string",
-      "required": true,
-      "default": "Homepage"
+      "default": "Homepage",
+      "required": true
     }
   }
 }
