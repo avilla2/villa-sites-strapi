@@ -6,7 +6,7 @@ module.exports = ({ env }) => ({
       providerOptions: {
         key: process.env.AWS_SES_KEY,
         secret: process.env.AWS_SES_SECRET,
-        amazon: `https://email.${(process.env.AWS_SES_REGION, 'us-west-2')}.amazonaws.com`,
+        amazon: `https://email.${(process.env.AWS_REGION, 'us-west-2')}.amazonaws.com`,
       },
        settings: {
          defaultFrom: 'notifications@villawebsolutions.com',
