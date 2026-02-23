@@ -661,6 +661,21 @@ export interface NavbarMenuComponentsMenuItem extends Struct.ComponentSchema {
   };
 }
 
+export interface SiteBannerComponentsSiteBanner extends Struct.ComponentSchema {
+  collectionName: 'components_site_banner_components_site_banners';
+  info: {
+    displayName: 'Site Banner';
+    icon: 'priceTag';
+  };
+  attributes: {
+    countdownDate: Schema.Attribute.Date;
+    cta: Schema.Attribute.String;
+    style: Schema.Attribute.Component<'content-page-components.style', false>;
+    text: Schema.Attribute.String;
+    timer: Schema.Attribute.Boolean;
+  };
+}
+
 export interface SiteSettingsComponentsColorPalette
   extends Struct.ComponentSchema {
   collectionName: 'components_site_settings_components_color_palettes';
@@ -728,6 +743,7 @@ declare module '@strapi/strapi' {
       'navbar-components.nav-menu': NavbarComponentsNavMenu;
       'navbar-components.text-link': NavbarComponentsTextLink;
       'navbar-menu-components.menu-item': NavbarMenuComponentsMenuItem;
+      'site-banner-components.site-banner': SiteBannerComponentsSiteBanner;
       'site-settings-components.color-palette': SiteSettingsComponentsColorPalette;
     }
   }
