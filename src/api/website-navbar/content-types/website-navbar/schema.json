@@ -18,68 +18,68 @@
   "attributes": {
     "Items": {
       "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "components": [
         "navbar-components.image-link",
         "navbar-components.text-link",
         "navbar-components.nav-button",
         "navbar-components.nav-menu"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      ]
     },
     "MobileConfig": {
       "type": "component",
-      "repeatable": false,
-      "component": "navbar-components.mobile-config",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "component": "navbar-components.mobile-config",
+      "repeatable": false
     },
     "Style": {
       "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "Spread Out",
       "enum": [
         "Spaced",
         "Spread Out",
         "Left Aligned",
         "Split"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "default": "Spread Out"
+      ]
     },
     "Appearance": {
       "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "solid",
       "enum": [
         "solid",
         "fade in"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "default": "solid"
+      ]
     },
     "FontColor": {
       "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "customField": "plugin::color-picker.color"
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
     },
     "Name": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string",
       "required": true
     },
     "website": {
@@ -87,6 +87,16 @@
       "relation": "oneToOne",
       "target": "api::website.website",
       "mappedBy": "navbar"
+    },
+    "siteBanner": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "site-banner-components.site-banner",
+      "repeatable": false
     }
   }
 }

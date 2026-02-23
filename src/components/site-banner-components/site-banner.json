@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_site_banner_components_site_banners",
+  "info": {
+    "displayName": "Site Banner",
+    "icon": "priceTag"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "cta": {
+      "type": "string"
+    },
+    "timer": {
+      "type": "boolean"
+    },
+    "countdownDate": {
+      "type": "date",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "timer"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "style": {
+      "type": "component",
+      "component": "content-page-components.style",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
