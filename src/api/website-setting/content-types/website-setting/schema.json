@@ -18,47 +18,47 @@
   "attributes": {
     "Palette": {
       "type": "component",
-      "repeatable": false,
-      "component": "site-settings-components.color-palette",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "component": "site-settings-components.color-palette",
+      "repeatable": false
     },
     "Name": {
       "type": "string",
-      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
     "DesktopBreakpoint": {
       "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "md",
       "enum": [
         "xs",
         "sm",
         "md",
         "lg",
         "xl"
-      ],
-      "default": "md",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      ]
     },
     "EnableLocalization": {
       "type": "boolean",
-      "default": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "default": false
     },
     "SiteTitle": {
       "type": "string",
@@ -73,6 +73,33 @@
       "relation": "oneToOne",
       "target": "api::website.website",
       "mappedBy": "site_settings"
+    },
+    "SiteDescription": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "SiteMetadata": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "site-settings-components.site-metadata",
+      "repeatable": false
+    },
+    "gTag": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

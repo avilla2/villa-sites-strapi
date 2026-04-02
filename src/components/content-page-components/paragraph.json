@@ -14,10 +14,9 @@
       "type": "richtext"
     },
     "Style": {
-      "displayName": "Style",
       "type": "component",
-      "repeatable": false,
-      "component": "content-page-components.style"
+      "component": "content-page-components.style",
+      "repeatable": false
     }
   }
 }

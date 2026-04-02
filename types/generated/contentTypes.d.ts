@@ -847,6 +847,12 @@ export interface ApiWebsiteSettingWebsiteSetting
         };
       }> &
       Schema.Attribute.DefaultTo<false>;
+    gTag: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -869,6 +875,22 @@ export interface ApiWebsiteSettingWebsiteSetting
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    SiteDescription: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    SiteMetadata: Schema.Attribute.Component<
+      'site-settings-components.site-metadata',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     SiteTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

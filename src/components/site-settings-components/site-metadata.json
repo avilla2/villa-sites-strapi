@@ -1,0 +1,57 @@
+{
+  "collectionName": "components_site_settings_components_site_metadata",
+  "info": {
+    "displayName": "Site Metadata",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "ThemeColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "Manifest": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "AppleTouchIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Android192Icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Android512Icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Favicon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "GoogleFontURL": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

@@ -85,7 +85,9 @@ export interface CardGroupComponentsCards extends Struct.ComponentSchema {
     ButtonText: Schema.Attribute.String;
     CardColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
-    CardStyle: Schema.Attribute.Enumeration<['standard', 'overlay']> &
+    CardStyle: Schema.Attribute.Enumeration<
+      ['standard', 'overlay', 'slideshow']
+    > &
       Schema.Attribute.DefaultTo<'standard'>;
     Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Link: Schema.Attribute.String;
@@ -125,6 +127,7 @@ export interface ContentPageComponentsCardGroup extends Struct.ComponentSchema {
     icon: 'collapse';
   };
   attributes: {
+    CardGroupStyle: Schema.Attribute.Enumeration<['grid', 'slideshow']>;
     Cards: Schema.Attribute.Component<'card-group-components.cards', true>;
     fullWidth: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     Style: Schema.Attribute.Component<'content-page-components.style', false>;
@@ -700,6 +703,25 @@ export interface SiteSettingsComponentsColorPalette
   };
 }
 
+export interface SiteSettingsComponentsSiteMetadata
+  extends Struct.ComponentSchema {
+  collectionName: 'components_site_settings_components_site_metadata';
+  info: {
+    displayName: 'Site Metadata';
+    icon: 'code';
+  };
+  attributes: {
+    Android192Icon: Schema.Attribute.Media<'images'>;
+    Android512Icon: Schema.Attribute.Media<'images'>;
+    AppleTouchIcon: Schema.Attribute.Media<'images'>;
+    Favicon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    GoogleFontURL: Schema.Attribute.String & Schema.Attribute.Required;
+    Manifest: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    ThemeColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -745,6 +767,7 @@ declare module '@strapi/strapi' {
       'navbar-menu-components.menu-item': NavbarMenuComponentsMenuItem;
       'site-banner-components.site-banner': SiteBannerComponentsSiteBanner;
       'site-settings-components.color-palette': SiteSettingsComponentsColorPalette;
+      'site-settings-components.site-metadata': SiteSettingsComponentsSiteMetadata;
     }
   }
 }

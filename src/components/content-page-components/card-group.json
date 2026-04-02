@@ -12,17 +12,24 @@
     },
     "Style": {
       "type": "component",
-      "repeatable": false,
-      "component": "content-page-components.style"
+      "component": "content-page-components.style",
+      "repeatable": false
     },
     "Cards": {
       "type": "component",
-      "repeatable": true,
-      "component": "card-group-components.cards"
+      "component": "card-group-components.cards",
+      "repeatable": true
     },
     "fullWidth": {
       "type": "boolean",
       "default": false
+    },
+    "CardGroupStyle": {
+      "type": "enumeration",
+      "enum": [
+        "grid",
+        "slideshow"
+      ]
     }
   }
 }
