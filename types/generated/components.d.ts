@@ -135,6 +135,17 @@ export interface ContentPageComponentsCardGroup extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentPageComponentsCustom extends Struct.ComponentSchema {
+  collectionName: 'components_content_page_components_customs';
+  info: {
+    displayName: 'Custom';
+    icon: 'star';
+  };
+  attributes: {
+    componentName: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ContentPageComponentsFaq extends Struct.ComponentSchema {
   collectionName: 'components_content_page_components_faqs';
   info: {
@@ -733,6 +744,7 @@ declare module '@strapi/strapi' {
       'card-group-components.cards': CardGroupComponentsCards;
       'content-page-components.buttons': ContentPageComponentsButtons;
       'content-page-components.card-group': ContentPageComponentsCardGroup;
+      'content-page-components.custom': ContentPageComponentsCustom;
       'content-page-components.faq': ContentPageComponentsFaq;
       'content-page-components.form': ContentPageComponentsForm;
       'content-page-components.grid': ContentPageComponentsGrid;

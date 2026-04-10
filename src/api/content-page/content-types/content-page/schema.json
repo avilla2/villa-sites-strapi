@@ -59,7 +59,8 @@
         "content-page-components.list",
         "home-page-components.slideshow",
         "home-page-components.rich-text",
-        "home-page-components.cta"
+        "home-page-components.cta",
+        "content-page-components.custom"
       ]
     },
     "Title": {

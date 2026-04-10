@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_content_page_components_customs",
+  "info": {
+    "displayName": "Custom",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "componentName": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
