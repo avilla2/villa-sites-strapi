@@ -48,9 +48,19 @@
         "images"
       ]
     },
-    "GoogleFontURL": {
-      "type": "string",
-      "required": true
+    "primaryFont": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "headingFont": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "files"
+      ]
     }
   },
   "config": {}

@@ -726,8 +726,9 @@ export interface SiteSettingsComponentsSiteMetadata
     Android512Icon: Schema.Attribute.Media<'images'>;
     AppleTouchIcon: Schema.Attribute.Media<'images'>;
     Favicon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    GoogleFontURL: Schema.Attribute.String & Schema.Attribute.Required;
+    headingFont: Schema.Attribute.Media<'files', true>;
     Manifest: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    primaryFont: Schema.Attribute.Media<'files', true>;
     ThemeColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
   };

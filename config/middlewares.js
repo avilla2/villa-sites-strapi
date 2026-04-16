@@ -14,6 +14,13 @@ module.exports = [
             process.env.CDN_URI,
             `https://${process.env.AWS_BUCKET}.s3.${process.env.AWS_REGION}.amazonaws.com`
           ],
+          "font-src": [
+            "'self'",
+            "data:",
+            "blob:",
+            process.env.CDN_URI,
+            `https://${process.env.AWS_BUCKET}.s3.${process.env.AWS_REGION}.amazonaws.com`
+          ],
           "media-src": [
             "'self'",
             "data:",
