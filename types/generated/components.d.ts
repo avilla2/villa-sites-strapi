@@ -286,6 +286,7 @@ export interface ContentPageComponentsStyle extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'None'>;
     BackgroundColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    backgroundImage: Schema.Attribute.Media<'images'>;
     paddingBottom: Schema.Attribute.Integer;
     paddingTop: Schema.Attribute.Integer;
     size: Schema.Attribute.Integer &

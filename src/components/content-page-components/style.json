@@ -9,43 +9,50 @@
   "attributes": {
     "Animation": {
       "type": "enumeration",
+      "default": "None",
       "enum": [
         "None",
         "Fade",
         "Slide"
-      ],
-      "default": "None"
+      ]
     },
     "BackgroundColor": {
       "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "customField": "plugin::color-picker.color"
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
     },
     "TextColor": {
       "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "customField": "plugin::color-picker.color"
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
     },
     "textAlign": {
       "type": "enumeration",
+      "default": "center",
       "enum": [
         "left",
         "center",
         "right"
-      ],
-      "default": "center"
+      ]
     },
     "size": {
       "type": "integer",
       "default": 12,
-      "max": 12,
-      "min": 3
+      "min": 3,
+      "max": 12
     },
     "paddingTop": {
       "type": "integer"
     },
     "paddingBottom": {
       "type": "integer"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
