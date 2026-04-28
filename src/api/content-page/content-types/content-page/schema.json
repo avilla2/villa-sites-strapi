@@ -76,6 +76,14 @@
       "relation": "manyToOne",
       "target": "api::website.website",
       "inversedBy": "content_pages"
+    },
+    "metaDescription": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
