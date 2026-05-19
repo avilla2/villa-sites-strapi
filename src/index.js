@@ -48,8 +48,9 @@ const getMappedRoles = (roles, simplifiedMapping) => {
 
 const clearSolarCache = async (contentType, action) => {
   const solarApiUrl = process.env.SOLAR_API_URL;
+  const solarApiToken = process.env.SOLAR_API_TOKEN;
   
-  if (!solarApiUrl) {
+  if (!solarApiUrl || !solarApiToken) {
     console.warn('Solar API not configured, skipping cache clear');
     return;
   }
@@ -57,6 +58,9 @@ const clearSolarCache = async (contentType, action) => {
   try {
     const response = await fetch(`${solarApiUrl}/clear-cache`, {
       method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${solarApiToken}`,
+      },
     });
     
     if (!response.ok) {
