@@ -46,6 +46,30 @@ const getMappedRoles = (roles, simplifiedMapping) => {
   return mappedRoles
 }
 
+const clearSolarCache = async (contentType, action) => {
+  const solarApiUrl = process.env.SOLAR_API_URL;
+  
+  if (!solarApiUrl) {
+    console.warn('Solar API not configured, skipping cache clear');
+    return;
+  }
+  
+  try {
+    const response = await fetch(`${solarApiUrl}/clear-cache`, {
+      method: 'POST',
+    });
+    
+    if (!response.ok) {
+      throw new Error(`Solar API responded with status ${response.status}`);
+    }
+    
+  } catch (error) {
+    console.error('Failed to clear Solar cache:', error.message);
+    throw error;
+  }
+}
+
+
 module.exports = {
   /**
    * An asynchronous register function that runs before
@@ -53,7 +77,25 @@ module.exports = {
    *
    * This gives you an opportunity to extend code.
    */
-  register() {},
+  register({ strapi }) {
+    // Register document service middleware to clear Solar cache on content changes
+    strapi.documents.use(async (ctx, next) => {
+      // Execute the action first
+      const result = await next();
+      
+      // Only trigger cache clear on successful create, update, delete, publish, or unpublish
+      const shouldClearCache = ['create', 'update', 'delete', 'publish', 'unpublish'].includes(ctx.action);
+      
+      if (shouldClearCache) {
+        // Call Solar cache clear endpoint asynchronously (don't wait for it)
+        clearSolarCache(ctx.uid, ctx.action).catch((error) => {
+          strapi.log.error('Failed to clear Solar cache:', error.message);
+        });
+      }
+      
+      return result;
+    });
+  },
 
   /**
    * An asynchronous bootstrap function that runs before
