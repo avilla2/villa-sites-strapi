@@ -410,6 +410,8 @@ export interface FormComponentsFormData extends Struct.ComponentSchema {
   };
   attributes: {
     BodyTitle: Schema.Attribute.String;
+    FormDescription: Schema.Attribute.Text;
+    FormTitle: Schema.Attribute.String;
     SendFrom: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'notifications@villawebsolutions.com'>;
     SendTo: Schema.Attribute.String;
@@ -736,7 +738,7 @@ export interface SiteSettingsComponentsSiteMetadata
 }
 
 declare module '@strapi/strapi' {
-  export module Public {
+  export namespace Public {
     export interface ComponentSchemas {
       'admin.role-mappings': AdminRoleMappings;
       'asset-components.image': AssetComponentsImage;

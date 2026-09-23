@@ -15,6 +15,12 @@
     },
     "BodyTitle": {
       "type": "string"
+    },
+    "FormTitle": {
+      "type": "string"
+    },
+    "FormDescription": {
+      "type": "text"
     }
   }
 }
